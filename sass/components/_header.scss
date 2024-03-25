@@ -2,4 +2,7 @@
 header {
     background-image: url("../assets/Cover.png");
     background-repeat: no-repeat;
+    h1 {
+        @include font-Anton;
+    }
 }
