@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <header class="bg-cover object-fit-contain d-flex flex-column h-50 w-100">
+<body class="bg-light">
+    <header class="row-cols-1 bg-cover object-fit-contain d-flex flex-column">
         <div class="row">
             <div class="col">
                 <img class="m-5 w-25 h-25" src="assets/Logo.png" alt="logo du site">
@@ -30,9 +30,9 @@
             <div class="col-4"></div>
         </div>
         <div class="row">
-            <div class="col text-light text-center">
-                <h1 class="m-0 text-warning">CHERCHEZ PARMI PLUS DE 1500 RECETTES</h1>
-                <h1 class="m-0  text-warning">DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
+            <div class="col text-warning text-center">
+                <h1 class="m-0">CHERCHEZ PARMI PLUS DE 1500 RECETTES</h1>
+                <h1 class="m-0">DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
             </div>
         </div>
         <div class="row">
@@ -40,11 +40,14 @@
             <div class="col-8">
                 <form class="form-inline mt-4">
                     <div class="position-relative pb-5 mb-5"> <!-- Utilisation du composant input-group -->
-                        <input class="form-control mr-sm-2 position-relative d-flex align-items-center justify-content-center" type="search" style = "height: 72px;"
-                            placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
+                        <input
+                            class="form-control mr-sm-2 position-relative d-flex align-items-center justify-content-center"
+                            type="search" style="height: 72px;" placeholder="Rechercher une recette, un ingrédient, ..."
+                            aria-label="Rechercher">
                         <div class="btn position-relative d-flex align-items-center justify-content-end" type="submit">
-                        <!-- <div class="btn" type="submit"> -->
-                            <button class="btn position-relative d-flex align-items-center justify-content-center" type="submit">
+                            <!-- <div class="btn" type="submit"> -->
+                            <button class="btn position-relative d-flex align-items-center justify-content-center"
+                                type="submit">
                                 <img class="bg-dark rounded p-2 m-0 position-absolute bottom-0 end-0 translate-middle"
                                     src="assets/Loupe.svg" alt="icone de la Loupe">
                             </button>
@@ -54,59 +57,31 @@
             </div>
             <div class="col-2"></div>
         </div>
-
     </header>
 
-    <body>
-
-        <div class="container">
-            <section class="#">
-                <div class="row">
-                    <div class="col-12">
-
-                    </div>
+    <div class="container">
+        <div class="mb-2 d-flex flex-wrap"></div>
+        <div class="btn-group mb-4">
+            <div class="dropdown mb-3 me-md-3">
+                <div class="btn btn-lg dropdown-toggle btn-ingredients bg-white">
+                    <span class="btn-tag-title">Ingrédients</span>
                 </div>
-                <div class="row">
-                    <div class="col-9 col-sm col-md col-lg col-xl">
-                        <!--Ici, pour tous les écrans sans restrictions de taille, 
-              9 colonnes sont attribuées à cette div
-                  NOTA BENE : pour le responsive, les modificateurs: 
-                              -md écrans >= 768 px 
-                              -lg écrans >= 992 px
-                              -xl écrans >= 1200 px-->
-                        <p></p>
-                        <div class="offset-3 col-8 col-sm col-md col-lg col-xl">
-                            <!--offset pour déplacer les colonnes vers la droite. 
-                      Ici, offset-3 déplace le titre h1 de 3 colonnes vers la droite-->
-                            <h1></h1>
-                        </div>
-                        <p>
-                            <b>xxxxxx</b>: <a target="_blank" href="#">https://www.XXX.com</a>
-                            <br>
-                            <b>yyyyyy</b>: <a target="_blank" href="#">https://www.YYY.com</a>
-                        </p>
-                        <h3></h3>
-                        <ul>
-                            <!--font-italic pour afficher le texte en italique-->
-                            <li> </li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="col-3 col-sm col-md col-lg col-xl">
-                        <img class="img-fluid"
-                            src="assets/Photos+P7+JS+Les+petits+plats/Photos_P7_JS_Lespetitsplats/Recette01.jpg"
-                            alt="" />
-                    </div>
+            </div>
+            <div class="dropdown mb-3 me-md-3">
+                <div class="btn btn-lg dropdown-toggle btn-appliance bg-white">
+                    <span class="btn-tag-title">Appareil</span>
                 </div>
-            </section>
-            <footer>
-
-            </footer>
+            </div>
+            <div class="dropdown mb-3 me-md-3">
+                <div class="btn btn-lg dropdown-toggle btn-ustensils bg-white">
+                    <span class="btn-tag-title">Ustensiles</span>
+                </div>
+            </div>
         </div>
-        <script src="script.js"></script>
-    </body>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
 
 </html>
