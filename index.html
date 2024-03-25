@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Les petits plats</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <!-- Sur le site : https://icones8.fr/icons/set/favicon -->
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="assets/favicon.png" />
+</head>
+
+<body>
+    <header class="bg-cover object-fit-contain d-flex flex-column h-50 w-100" style="background-image: url('assets/Cover.png');">
+        <div class="row">
+            <div class="col">
+                <img class="m-5 w-25 h-25" src="assets/Logo.png" alt="logo du site">
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col text-light text-center" style = "font-family: Anton;">
+                <h1 class="m-0 text-warning">CHERCHEZ PARMI PLUS DE 1500 RECETTES</h1>
+                <h1 class="m-0  text-warning">DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <form class="form-inline mt-4">
+                    <div class="position-relative pb-5 mb-5"> <!-- Utilisation du composant input-group -->
+                        <input class="form-control mr-sm-2 position-relative d-flex align-items-center justify-content-center" type="search" style = "height: 72px;"
+                            placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
+                        <div class="btn position-relative d-flex align-items-center justify-content-end" type="submit">
+                        <!-- <div class="btn" type="submit"> -->
+                            <button class="btn position-relative d-flex align-items-center justify-content-center" type="submit">
+                                <img class="bg-dark rounded p-2 m-0 position-absolute bottom-0 end-0 translate-middle"
+                                    src="assets/Loupe.svg" alt="icone de la Loupe">
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+    </header>
+
+    <body>
+
+        <div class="container">
+            <section class="#">
+                <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9 col-sm col-md col-lg col-xl">
+                        <!--Ici, pour tous les écrans sans restrictions de taille, 
+              9 colonnes sont attribuées à cette div
+                  NOTA BENE : pour le responsive, les modificateurs: 
+                              -md écrans >= 768 px 
+                              -lg écrans >= 992 px
+                              -xl écrans >= 1200 px-->
+                        <p></p>
+                        <div class="offset-3 col-8 col-sm col-md col-lg col-xl">
+                            <!--offset pour déplacer les colonnes vers la droite. 
+                      Ici, offset-3 déplace le titre h1 de 3 colonnes vers la droite-->
+                            <h1></h1>
+                        </div>
+                        <p>
+                            <b>xxxxxx</b>: <a target="_blank" href="#">https://www.XXX.com</a>
+                            <br>
+                            <b>yyyyyy</b>: <a target="_blank" href="#">https://www.YYY.com</a>
+                        </p>
+                        <h3></h3>
+                        <ul>
+                            <!--font-italic pour afficher le texte en italique-->
+                            <li> </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-sm col-md col-lg col-xl">
+                        <img class="img-fluid"
+                            src="assets/Photos+P7+JS+Les+petits+plats/Photos_P7_JS_Lespetitsplats/Recette01.jpg"
+                            alt="" />
+                    </div>
+                </div>
+            </section>
+            <footer>
+
+            </footer>
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+</html>
