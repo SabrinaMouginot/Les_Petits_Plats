@@ -17,15 +17,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <!-- Favicon -->
     <!-- Sur le site : https://icones8.fr/icons/set/favicon -->
-    <link rel="shortcut icon" type="image/png" sizes="16x16" href="assets/favicon.png" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <header>
         <div class="row">
             <div class="col">
-                <img class="m-5 w-25 h-25" src="assets/Logo.png" alt="logo du site">
+                <img class="m-5 w-25 h-25" src="assets/images/Logo.png" alt="logo du site">
             </div>
             <div class="col-4"></div>
         </div>
@@ -39,32 +39,19 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <!-- <form class="form-inline mt-4">
-                    <div class="position-relative pb-5 mb-5"> 
-                        <input
-                            class="form-control mr-sm-2 position-absolute d-flex align-items-center justify-content-end"
-                            type="search" placeholder="Rechercher une recette, un ingrédient, ..."
-                            aria-label="Rechercher"> -->
-                        <!-- <div class="btn position-relative d-flex align-items-center justify-content-end" type="submit"> -->
-                        <!-- <div class="btn d-flex align-items-center justify-content-end" type="submit">
-                            <button class="bg-dark rounded p-2 m-0" type="submit">
-                                <img src="assets/Loupe.svg" alt="icone de la Loupe">
-                            </button>
-                        </div>
-                    </div>
-                </form> -->
-
                 <form class="form-inline mt-4">
                     <div class="position-relative custom-mb-10"> <!-- Utilisation du composant input-group -->
-                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
-                        <div class="position-absolute d-flex align-items-center justify-content-center" style="right: 0; top: 0; bottom: 0;">
+                        <input class="form-control mr-sm-2" type="search"
+                            placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
+                        <div class="position-absolute d-flex align-items-center justify-content-center"
+                            style="right: 0; top: 0; bottom: 0;">
                             <button class="bg-dark rounded p-2 m-3" type="submit">
-                                <img src="assets/Loupe.svg" alt="icone de la Loupe">
+                                <img src="assets/images/Loupe.svg" alt="icone de la Loupe">
                             </button>
                         </div>
                     </div>
                 </form>
-                
+
             </div>
             <div class="col-2"></div>
         </div>
@@ -77,112 +64,22 @@
                 <div class="card dropdown mb-3 me-md-3">
                     <div class="btn btn-lg dropdown-toggle btn-ingredients bg-white">
                         <span class="btn-tag-title">Ingrédients</span>
+                        <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
+                            aria-hidden="true" />
                     </div>
                 </div>
                 <div class="card dropdown mb-3 me-md-3">
                     <div class="btn btn-lg dropdown-toggle btn-appliance bg-white">
                         <span class="btn-tag-title">Appareils</span>
+                        <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
+                            aria-hidden="true" />
                     </div>
                 </div>
                 <div class="card dropdown mb-3 me-md-3">
                     <div class="btn btn-lg dropdown-toggle btn-ustensils bg-white">
                         <span class="btn-tag-title">Ustensiles</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-container mt-4">
-            <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 1</h5>
-                            <p class="card-text">Contenu de la carte 1.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 2</h5>
-                            <p class="card-text">Contenu de la carte 2.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 3</h5>
-                            <p class="card-text">Contenu de la carte 3.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-container mt-4">
-            <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 4</h5>
-                            <p class="card-text">Contenu de la carte 4.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 5</h5>
-                            <p class="card-text">Contenu de la carte 5.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 6</h5>
-                            <p class="card-text">Contenu de la carte 6.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-container mt-4">
-            <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 7</h5>
-                            <p class="card-text">Contenu de la carte 7.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 8</h5>
-                            <p class="card-text">Contenu de la carte 8.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="image du plat">
-                        <div class="card-body">
-                            <h5 class="card-title">Card 9</h5>
-                            <p class="card-text">Contenu de la carte 9.</p>
-                        </div>
+                        <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
+                            aria-hidden="true" />
                     </div>
                 </div>
             </div>
@@ -190,7 +87,105 @@
     </div>
 
 
-    <script src="script.js"></script>
+    <div class="card-container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <div class="card mb-4 me-md-3">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 1</h5>
+                        <p class="card-text">Contenu de la carte 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card me-md-3">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 2</h5>
+                        <p class="card-text">Contenu de la carte 2.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 3</h5>
+                        <p class="card-text">Contenu de la carte 3.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <div class="card mb-4 me-md-3">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 4</h5>
+                        <p class="card-text">Contenu de la carte 4.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card me-md-3">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 5</h5>
+                        <p class="card-text">Contenu de la carte 5.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 6</h5>
+                        <p class="card-text">Contenu de la carte 6.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <div class="card mb-4 me-md-3">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 7</h5>
+                        <p class="card-text">Contenu de la carte 7.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card me-md-3">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 8</h5>
+                        <p class="card-text">Contenu de la carte 8.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="image du plat">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 9</h5>
+                        <p class="card-text">Contenu de la carte 9.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
