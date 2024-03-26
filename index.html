@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-light">
-    <header class="row-cols-1 bg-cover object-fit-contain d-flex flex-column">
+<body>
+    <header>
         <div class="row">
             <div class="col">
                 <img class="m-5 w-25 h-25" src="assets/Logo.png" alt="logo du site">
@@ -30,30 +30,41 @@
             <div class="col-4"></div>
         </div>
         <div class="row">
-            <div class="col text-warning text-center">
-                <h1 class="m-0">CHERCHEZ PARMI PLUS DE 1500 RECETTES</h1>
-                <h1 class="m-0">DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
+            <div class="col-3"></div>
+            <div class="col-5 text-warning text-center">
+                <h1 class="m-0">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
             </div>
+            <div class="col-3"></div>
         </div>
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form class="form-inline mt-4">
-                    <div class="position-relative pb-5 mb-5"> <!-- Utilisation du composant input-group -->
+                <!-- <form class="form-inline mt-4">
+                    <div class="position-relative pb-5 mb-5"> 
                         <input
-                            class="form-control mr-sm-2 position-relative d-flex align-items-center justify-content-center"
+                            class="form-control mr-sm-2 position-absolute d-flex align-items-center justify-content-end"
                             type="search" placeholder="Rechercher une recette, un ingrédient, ..."
-                            aria-label="Rechercher">
-                        <div class="btn position-relative d-flex align-items-center justify-content-end" type="submit">
-                            <!-- <div class="btn" type="submit"> -->
-                            <button class="btn position-relative d-flex align-items-center justify-content-center"
-                                type="submit">
-                                <img class="bg-dark rounded p-2 m-0 position-absolute bottom-0 end-0 translate-middle"
-                                    src="assets/Loupe.svg" alt="icone de la Loupe">
+                            aria-label="Rechercher"> -->
+                        <!-- <div class="btn position-relative d-flex align-items-center justify-content-end" type="submit"> -->
+                        <!-- <div class="btn d-flex align-items-center justify-content-end" type="submit">
+                            <button class="bg-dark rounded p-2 m-0" type="submit">
+                                <img src="assets/Loupe.svg" alt="icone de la Loupe">
+                            </button>
+                        </div>
+                    </div>
+                </form> -->
+
+                <form class="form-inline mt-4">
+                    <div class="position-relative custom-mb-10"> <!-- Utilisation du composant input-group -->
+                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
+                        <div class="position-absolute d-flex align-items-center justify-content-center" style="right: 0; top: 0; bottom: 0;">
+                            <button class="bg-dark rounded p-2 m-3" type="submit">
+                                <img src="assets/Loupe.svg" alt="icone de la Loupe">
                             </button>
                         </div>
                     </div>
                 </form>
+                
             </div>
             <div class="col-2"></div>
         </div>

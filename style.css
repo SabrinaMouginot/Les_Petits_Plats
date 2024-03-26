@@ -1,28 +1,34 @@
-/* $light-grey:#a2a2a2;
-$grey:#4e4e4e; */
 body {
     margin: 0px;
     padding: 0px;
-    background-color: #a2a2a2;
+    background-color: #EDEDED;
 }
-.container {
-    max-width: 1440px;
-    margin: auto;
-}
-
 
 header {
     background-image: url("../assets/Cover.png");
-    background-repeat: no-repeat;
-    h1 {
-        font-family: "Anton", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-    }
-    input {
-        height: 72px;
-    }
+    background-size: cover; 
+    background-position: center; 
+    width: 100%;
 }
+
+header h1 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    word-wrap: break-word;
+}
+
+header input {
+    height: 72px;
+}
+
+.custom-mb-10 {
+    margin-bottom: 10rem;
+}
+
+/* header .btn {
+
+} */
 
 .card-container h5 {
     font-family: "Anton", sans-serif;
