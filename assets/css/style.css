@@ -4,8 +4,10 @@ body {
     background-color: #EDEDED;
 }
 
+/* HEADER */
+
 header {
-    background-image: url("../assets/Cover.png");
+    background-image: url("../images/Cover.png");
     background-size: cover; 
     background-position: center; 
     width: 100%;
@@ -26,9 +28,7 @@ header input {
     margin-bottom: 10rem;
 }
 
-/* header .btn {
-
-} */
+/* CONTAINER (BOUTON ET CARD) */
 
 .card-container h5 {
     font-family: "Anton", sans-serif;
