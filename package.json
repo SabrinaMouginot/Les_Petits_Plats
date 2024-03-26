@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/SabrinaMouginot/Les_Petits_Plats#readme",
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "sass": "^1.72.0"
+    "bootstrap": "^5.3.3"
   }
 }
