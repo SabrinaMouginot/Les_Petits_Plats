@@ -63,3 +63,13 @@ border-top-left-radius: 21px;
 border-top-right-radius: 21px; 
 object-fit: cover;
 }
+
+
+/* BOUTONS FILTRES  */
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}

@@ -1,3 +1,16 @@
-// filterFactory.js
-// Ce fichier peut contenir les fonctions pour filtrer les recettes par ingrédients, appareils et ustensiles.
-// Pour l'instant, je laisse ce fichier vide, car je n'ai pas encore implémenté cette fonctionnalité.
+// Fonction pour obtenir une liste d'ingrédients uniques à partir des recettes
+export function getUniqueIngredients(recipes) {
+    let uniqueIngredientsSet = new Set(); // Utiliser un ensemble pour stocker les ingrédients uniques
+
+    // Parcourir chaque recette pour extraire les ingrédients
+    recipes.forEach(recipe => {
+        recipe.ingredients.forEach(ingredient => {
+            uniqueIngredientsSet.add(ingredient.ingredient); // Ajouter chaque ingrédient à l'ensemble
+        });
+    });
+
+    // Convertir l'ensemble en un tableau et le trier par ordre alphabétique
+    let uniqueIngredientsArray = Array.from(uniqueIngredientsSet).sort((a, b) => a.localeCompare(b));
+
+    return uniqueIngredientsArray;
+}
