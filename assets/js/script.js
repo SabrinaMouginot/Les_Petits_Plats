@@ -1,6 +1,7 @@
 import RecipeFactory from './recipeFactory.js';
 import RenderFactory from './renderFactory.js';
 import { generateIngredientDropdown } from './filters/ingredientFilter.js';
+import { generateApplianceDropdown } from './filters/applianceFilter.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     RecipeFactory.loadRecipes()
