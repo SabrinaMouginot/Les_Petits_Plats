@@ -24,6 +24,12 @@ header input {
     height: 72px;
 }
 
+.loupe {
+    right: 0; 
+    top: 0; 
+    bottom: 0;
+}
+
 .custom-mb-10 {
     margin-bottom: 10rem;
 }
@@ -47,7 +53,9 @@ header input {
     font-style: normal;
 }
 
-/* Ajustement de la taille des cartes */
-.card {
-    max-width: 300px; /* Ajustez la taille maximale des cartes selon vos besoins */
+.ImgRecipe {
+height: 253px; 
+border-top-left-radius: 21px; 
+border-top-right-radius: 21px; 
+object-fit: cover;
 }
