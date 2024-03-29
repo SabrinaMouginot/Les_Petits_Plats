@@ -35,3 +35,19 @@ export function getUniqueAppliances(recipes) {
     return uniqueAppliancesArray;
 }
 
+// Fonction pour obtenir une liste d'ustensiles uniques à partir des recettes
+export function getUniqueUstensils(recipes) {
+    let uniqueUstensilsSet = new Set(); // Utiliser un ensemble pour stocker les ustensiles uniques
+
+    // Parcourir chaque recette pour extraire les ustensiles
+    recipes.forEach(recipe => {
+        recipe.ustensils.forEach(ustensil => {
+            uniqueUstensilsSet.add(ustensil); // Ajouter chaque ustensile à l'ensemble
+        });
+    });
+
+    // Convertir l'ensemble en un tableau et le trier par ordre alphabétique
+    let uniqueUstensilsArray = Array.from(uniqueUstensilsSet).sort((a, b) => a.localeCompare(b));
+
+    return uniqueUstensilsArray;
+}

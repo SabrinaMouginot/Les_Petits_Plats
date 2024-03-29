@@ -2,6 +2,7 @@ import RecipeFactory from './recipeFactory.js';
 import RenderFactory from './renderFactory.js';
 import { generateIngredientDropdown } from './filters/ingredientFilter.js';
 import { generateApplianceDropdown } from './filters/applianceFilter.js';
+import { generateUstensilDropdown } from './filters/ustensilFilter.js'; // Import de la fonction pour générer le menu déroulant des ustensiles
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             RenderFactory.renderRecipes(recipes);
             generateIngredientDropdown(recipes); // Appel de la fonction pour générer le menu déroulant des ingrédients
             generateApplianceDropdown(recipes); // Appel de la fonction pour générer le menu déroulant des appareils
+            generateUstensilDropdown(recipes); // Appel de la fonction pour générer le menu déroulant des ustensiles
 
             // Sélection des boutons d'ingrédients et d'appareils
             const ingredientsButton = document.querySelector('.btn-ingredients');
