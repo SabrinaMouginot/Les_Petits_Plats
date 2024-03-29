@@ -66,8 +66,16 @@ object-fit: cover;
 
 
 /* BOUTONS FILTRES  */
+
 .dropdown-menu {
     display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 200px; /* Largeur désirée */
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-menu.show {
