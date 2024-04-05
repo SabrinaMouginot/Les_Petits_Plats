@@ -75,3 +75,9 @@ object-fit: cover;
 .dropdown-menu.show {
     display: block;
 }
+
+.selected-ingredient,
+.selected-appliance,
+.selected-ustensil {
+    margin-right: 35px;
+}
