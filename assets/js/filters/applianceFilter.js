@@ -36,8 +36,8 @@ function handleApplianceSelection(selectedAppliance) {
     selectedApplianceDisplay.textContent = `${selectedAppliance}`;
 
     // Filtrer les recettes en fonction de l'appareil sélectionné
-    const filteredRecipes = recipes.filter(recipe => recipe.appliance === selectedAppliance);
+    // const filteredRecipes = recipes.filter(recipe => recipe.appliance === selectedAppliance);
 
     // Rendre les recettes filtrées sur la page
-    renderRecipes(filteredRecipes);
+    // renderRecipes(filteredRecipes);
 }

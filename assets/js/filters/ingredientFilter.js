@@ -43,12 +43,10 @@ function handleIngredientSelection(selectedIngredient) {
     selectedIngredientDisplay.textContent = `${selectedIngredient}`;
 
     // Filtrer les recettes en fonction de l'ingrédient sélectionné
-    const filteredRecipes = recipes.filter(recipe =>
-        recipe.ingredients.some(ingredient => ingredient.ingredient === selectedIngredient)
-    );
+    // const filteredRecipes = recipes.filter(recipe =>
+    //     recipe.ingredients.some(ingredient => ingredient.ingredient === selectedIngredient)
+    // );
 
     // Rendre les recettes filtrées sur la page
-    renderRecipes(filteredRecipes);
+    // renderRecipes(filteredRecipes);
 }
-
-
