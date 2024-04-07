@@ -4,9 +4,13 @@ import { generateIngredientDropdown } from './filters/ingredientFilter.js';
 import { generateApplianceDropdown } from './filters/applianceFilter.js';
 import { generateUstensilDropdown } from './filters/ustensilFilter.js';
 
+let allRecipes; // Déclarer la variable globale allRecipes
 document.addEventListener('DOMContentLoaded', function () {
     RecipeFactory.loadRecipes()
         .then(recipes => {
+            // Assurez-vous que les recettes sont accessibles ici
+            allRecipes = recipes;
+
             RenderFactory.renderRecipes(recipes);
             generateIngredientDropdown(recipes);
             generateApplianceDropdown(recipes);

@@ -13,7 +13,7 @@ export function generateUstensilDropdown(recipes) {
         menuItem.textContent = ustensil; // Définition du texte du bouton à l'ustensile actuel
         menuItem.addEventListener('click', () => {
             console.log('Ustensile sélectionné :', ustensil); // Ajout d'un gestionnaire d'événement pour afficher l'ustensile sélectionné
-            displaySelectedUstensil(ustensil); // Afficher l'ustensile sélectionné
+            handleUstensilSelection(ustensil); // Afficher l'ustensile sélectionné
         });
         dropdownMenu.appendChild(menuItem); // Ajout de l'élément de menu au menu déroulant
     });
@@ -27,8 +27,11 @@ export function generateUstensilDropdown(recipes) {
     });
 }
 
-// Fonction pour afficher l'ustensile sélectionné
-function displaySelectedUstensil(selectedUstensil) {
+// Fonction pour gérer la sélection d'ingrédient
+function handleUstensilSelection(selectedUstensil) {
+    // Sélection de l'élément où afficher l'ingrédient sélectionné dans le navigateur
     const selectedUstensilDisplay = document.querySelector('.selected-ustensil');
+
+    // Afficher l'ingrédient sélectionné à l'écran
     selectedUstensilDisplay.textContent = `${selectedUstensil}`;
 }
