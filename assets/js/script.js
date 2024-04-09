@@ -1,50 +1,3 @@
-// // Importer RecipeFactory depuis recipeFactory.js
-// import RecipeFactory from './recipeFactory.js';
-// import { generateIngredientDropdown } from './filters/ingredientFilter.js';
-// import { generateApplianceDropdown } from './filters/applianceFilter.js';
-// import { generateUstensilDropdown } from './filters/ustensilFilter.js';
-
-// // Déclarer la variable globale allRecipes
-// let allRecipes;
-
-// // Écouter l'événement DOMContentLoaded
-// document.addEventListener('DOMContentLoaded', function () {
-//     // Charger les recettes
-//     RecipeFactory.loadRecipes()
-//         .then(recipes => {
-//             // Assurez-vous que les recettes sont accessibles ici
-//             allRecipes = recipes;
-
-//             // Afficher les recettes
-//             RecipeFactory.renderRecipes(recipes);
-//             generateIngredientDropdown(recipes);
-//             generateApplianceDropdown(recipes);
-//             generateUstensilDropdown(recipes);
-
-//             // Sélectionner les boutons
-//             const ingredientsButton = document.querySelector('.btn-ingredients');
-//             const appliancesButton = document.querySelector('.btn-appliance');
-//             const ustensilsButton = document.querySelector('.btn-ustensils');
-
-//             // Ajouter des écouteurs d'événements pour les boutons
-//             ingredientsButton.addEventListener('click', function () {
-//                 const ingredientsDropdown = document.querySelector('.btn-ingredients .dropdown-menu');
-//                 ingredientsDropdown.classList.toggle('show');
-//             });
-
-//             appliancesButton.addEventListener('click', function () {
-//                 const appliancesDropdown = document.querySelector('.btn-appliance .dropdown-menu');
-//                 appliancesDropdown.classList.toggle('show');
-//             });
-
-//             ustensilsButton.addEventListener('click', function () {
-//                 const ustensilsDropdown = document.querySelector('.btn-ustensils .dropdown-menu');
-//                 ustensilsDropdown.classList.toggle('show');
-//             });
-//         })
-//         .catch(error => console.error('Erreur de chargement des données :', error));
-// });
-
 import RecipeFactory from './recipeFactory.js';
 import { generateIngredientDropdown } from './filters/ingredientFilter.js';
 import { generateApplianceDropdown } from './filters/applianceFilter.js';
@@ -54,7 +7,6 @@ let allRecipes; // Déclarer la variable globale allRecipes
 document.addEventListener('DOMContentLoaded', function () {
     RecipeFactory.loadRecipes()
         .then(recipes => {
-            // Assurez-vous que les recettes sont accessibles ici
             allRecipes = recipes;
 
             RecipeFactory.renderRecipes(recipes);
@@ -65,42 +17,36 @@ document.addEventListener('DOMContentLoaded', function () {
             const ingredientsButton = document.querySelector('.btn-ingredients');
             const appliancesButton = document.querySelector('.btn-appliance');
             const ustensilsButton = document.querySelector('.btn-ustensils');
+            const ingredientsDropdown = document.querySelector('.btn-ingredients .dropdown-menu');
+            const appliancesDropdown = document.querySelector('.btn-appliance .dropdown-menu');
+            const ustensilsDropdown = document.querySelector('.btn-ustensils .dropdown-menu');
 
-            ingredientsButton.addEventListener('click', function () {
-                const ingredientsDropdown = document.querySelector('.btn-ingredients .dropdown-menu');
-                toggleDropdown(ingredientsDropdown);
-            });
+            // Gestion des événements pour le bouton Ingrédients et sa flèche
+            ingredientsButton.addEventListener('click', toggleIngredientDropdown);
+            ingredientsButton.querySelector('.dropdown-arrow').addEventListener('click', toggleIngredientDropdown);
 
-            appliancesButton.addEventListener('click', function () {
-                const appliancesDropdown = document.querySelector('.btn-appliance .dropdown-menu');
-                toggleDropdown(appliancesDropdown);
-            });
+            // Gestion des événements pour le bouton Appareils
+            appliancesButton.addEventListener('click', toggleDropdown(appliancesDropdown));
 
-            ustensilsButton.addEventListener('click', function () {
-                const ustensilsDropdown = document.querySelector('.btn-ustensils .dropdown-menu');
-                toggleDropdown(ustensilsDropdown);
-            });
+            // Gestion des événements pour le bouton Ustensiles
+            ustensilsButton.addEventListener('click', toggleDropdown(ustensilsDropdown));
 
-            const dropdownArrow = document.querySelector('.dropdown-arrow');
+            function toggleIngredientDropdown() {
+                closeDropdowns(appliancesDropdown, ustensilsDropdown);
+                ingredientsDropdown.classList.toggle('show');
+            }
 
-            dropdownArrow.addEventListener('click', function () {
-                const dropdownMenus = document.querySelectorAll('.dropdown-menu');
-                dropdownMenus.forEach(menu => {
-                    if (menu.classList.contains('show')) {
-                        menu.classList.remove('show');
-                    }
-                });
-            });
+            function toggleDropdown(dropdown) {
+                return function () {
+                    closeDropdowns(ingredientsDropdown, dropdown === appliancesDropdown ? ustensilsDropdown : appliancesDropdown);
+                    dropdown.classList.toggle('show');
+                };
+            }
+
+            function closeDropdowns(...dropdowns) {
+                dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+            }
+
         })
         .catch(error => console.error('Erreur de chargement des données :', error));
 });
-
-function toggleDropdown(dropdown) {
-    const allDropdowns = document.querySelectorAll('.dropdown-menu');
-    allDropdowns.forEach(menu => {
-        if (menu !== dropdown && menu.classList.contains('show')) {
-            menu.classList.remove('show');
-        }
-    });
-    dropdown.classList.toggle('show');
-}
