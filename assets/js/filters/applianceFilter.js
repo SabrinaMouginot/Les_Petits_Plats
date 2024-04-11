@@ -1,30 +1,11 @@
-import { getUniqueAppliances } from './filterFactory.js'; // Assurez-vous que le chemin est correct
+// import { getUniqueItems } from './filterFactory.js';
+// import { handleSelection } from '../selectionHandler.js';
+export { getUniqueItems, generateDropdown, handleSelection };
+
 
 export function generateApplianceDropdown(recipes) {
-    const uniqueAppliances = getUniqueAppliances(recipes);
-    const appliancesDropdown = document.querySelector('.btn-appliance');
-
-    const dropdownMenu = document.createElement('div');
-    dropdownMenu.classList.add('dropdown-menu');
-    uniqueAppliances.forEach(appliance => {
-        const menuItem = document.createElement('button');
-        menuItem.classList.add('dropdown-item');
-        menuItem.type = 'button';
-        menuItem.textContent = appliance;
-        menuItem.addEventListener('click', () => {
-            console.log('Appareil sélectionné :', appliance);
-            handleApplianceSelection(appliance); // Appel de la fonction pour gérer la sélection de l'appareil
-        });
-        dropdownMenu.appendChild(menuItem);
-    });
-
-    appliancesDropdown.appendChild(dropdownMenu);
-
-    const dropdownArrow = document.querySelector('.dropdown-arrow');
-
-    dropdownArrow.addEventListener('click', function () {
-        dropdownMenu.classList.toggle('show');
-    });
+    const uniqueAppliances = getUniqueItems(recipes, 'appliance');
+    generateDropdown(uniqueAppliances, '.btn-appliance', handleSelection);
 }
 
 // Fonction pour gérer la sélection de l'appareil
@@ -35,9 +16,6 @@ function handleApplianceSelection(selectedAppliance) {
     // Afficher l'appareil sélectionné à l'écran
     selectedApplianceDisplay.textContent = `${selectedAppliance}`;
 
-    // Filtrer les recettes en fonction de l'appareil sélectionné
-    // const filteredRecipes = recipes.filter(recipe => recipe.appliance === selectedAppliance);
-
-    // Rendre les recettes filtrées sur la page
-    // renderRecipes(filteredRecipes);
 }
+
+
