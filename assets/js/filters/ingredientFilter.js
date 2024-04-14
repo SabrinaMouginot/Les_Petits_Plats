@@ -1,7 +1,4 @@
-// import { getUniqueItems, generateDropdown } from './filterFactory.js';
-// import { handleSelection } from '../selectionHandler.js';
-export { getUniqueItems, generateDropdown, handleSelection };
-
+import { getUniqueItems, generateDropdown, handleSelection } from './filterFactory.js';
 
 export function generateIngredientDropdown(recipes) {
     const uniqueIngredients = getUniqueItems(recipes, 'ingredients');
