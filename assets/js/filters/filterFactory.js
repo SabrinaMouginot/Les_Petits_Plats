@@ -4,6 +4,14 @@
 export function getUniqueItems(recipes, property) {
     let uniqueItemsSet = new Set(); // Utiliser un ensemble pour stocker les éléments uniques
 
+    // recipes.forEach(recipe => {
+    //     recipe.ingredients.forEach(ingredientObject => {
+    //         const ingredientName = ingredientObject.ingredient;
+            
+    //     });
+    // });
+    
+
     // Parcourir chaque recette pour extraire les éléments de la propriété spécifiée
     recipes.forEach(recipe => {
         const propertyValue = recipe[property];
@@ -50,14 +58,6 @@ export function generateDropdown(uniqueItems, dropdownSelector, handleSelection)
         dropdownMenu.classList.toggle('show');
     });
 }
-
-
-// // Fonction générique pour gérer la sélection d'un élément
-// export function handleSelection(selectedItem) {
-//     const selectedItemDisplay = document.querySelector(`.selected-${selectedItem}`);
-//     selectedItemDisplay.textContent = selectedItem;
-//     // Ajouter le reste de la logique de gestion de la sélection ici
-// }
 
 
 // Fonction générique pour gérer la sélection d'un élément
