@@ -1,11 +1,18 @@
-import { getUniqueItems, generateDropdown, handleSelection } from './filterFactory.js';
+import { getUniqueItems, generateDropdown } from './filterFactory.js';
+import { tags } from '../script.js';
 
 export function generateUstensilDropdown(recipes) {
-    const uniqueUstensils = getUniqueItems(recipes, 'ustensils');
-    generateDropdown(uniqueUstensils, '.btn-ustensils', handleSelection);
+    const ustensils = recipes.map(recipe => recipe.ustensils).flat()
+    const uniqueUstensils = getUniqueItems(ustensils);
+    console.log(uniqueUstensils);
+    generateDropdown(uniqueUstensils, '.btn-ustensils', handleUstensilSelection);
 }
 
-export function handleUstensilSelection(selectedUstensil) {
-    handleSelection(selectedUstensil);
+function handleUstensilSelection(selectedUstensil) {
+    tags.push({
+        value: selectedUstensil,
+        type: "ustensil"
+    })
+    console.log(tags)
 }
 
