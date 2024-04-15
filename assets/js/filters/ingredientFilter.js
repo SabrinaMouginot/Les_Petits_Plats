@@ -8,9 +8,21 @@ export function generateIngredientDropdown(recipes) {
 }
 
 function handleIngredientSelection(selectedIngredient) {
-    tags.push({
-        value: selectedIngredient,
-        type: "ingredient"
-    })
-    console.log(tags)
+    // Vérifier si l'ingrédient sélectionné existe déjà dans tags
+    const existingIndex = tags.findIndex(tag => tag.value === selectedIngredient && tag.type === "ingredient");
+
+    if (existingIndex !== -1) {
+        // Si l'ingrédient existe déjà, le retirer du tableau
+        tags.splice(existingIndex, 1);
+        console.log(`L'ingrédient "${selectedIngredient}" a été retiré.`);
+    } else {
+        // Sinon, ajouter l'ingrédient au tableau
+        tags.push({
+            value: selectedIngredient,
+            type: "ingredient"
+        });
+        console.log(`L'ingrédient "${selectedIngredient}" a été ajouté.`);
+    }
+
+    console.log(tags);
 }
