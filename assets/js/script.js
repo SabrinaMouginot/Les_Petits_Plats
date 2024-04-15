@@ -1,8 +1,9 @@
 import RecipeFactory from './recipeFactory.js';
-import { generateIngredientDropdown, handleIngredientSelection } from './filters/ingredientFilter.js';
-import { generateApplianceDropdown, handleApplianceSelection } from './filters/applianceFilter.js';
-import { generateUstensilDropdown, handleUstensilSelection } from './filters/ustensilFilter.js';
+import { generateIngredientDropdown } from './filters/ingredientFilter.js';
+import { generateApplianceDropdown } from './filters/applianceFilter.js';
+import { generateUstensilDropdown } from './filters/ustensilFilter.js';
 
+const tags = []
 
 let allRecipes; // Déclarer la variable globale allRecipes
 document.addEventListener('DOMContentLoaded', function () {
@@ -59,3 +60,5 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Erreur de chargement des données :', error));
 });
+
+export {tags};
