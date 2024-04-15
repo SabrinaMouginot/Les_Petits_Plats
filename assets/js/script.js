@@ -57,8 +57,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
             }
 
+            // function displayTags() {
+            //     const tagsContainer = document.querySelector('.tags-container');
+            //     // tagsContainer.innerHTML = ''; // Efface les tags précédents
+
+            //     tags.forEach(tag => {
+            //         const tagElement = document.createElement('div');
+            //         tagElement.classList.add('tag');
+            //         tagElement.classList.add(`tag-${tag.type}`);
+            //         tagElement.textContent = tag.value;
+            //         tagsContainer.appendChild(tagElement);
+            //     });
+            // }
+
+            function displayTags() {
+                const tagsContainer = document.querySelector('.tags-container');
+                tagsContainer.innerHTML = ''; // Efface les tags précédents
+            
+                tags.forEach(tag => {
+                    const tagElement = document.createElement('div');
+                    tagElement.classList.add('tag');
+                    tagElement.classList.add(`tag-${tag.type}`);
+                    tagElement.textContent = tag.value;
+                    tagsContainer.appendChild(tagElement);
+                });
+            }
+            
+
         })
         .catch(error => console.error('Erreur de chargement des données :', error));
 });
 
-export {tags};
+export { tags };

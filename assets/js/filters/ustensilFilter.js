@@ -26,4 +26,6 @@ export function handleUstensilSelection(selectedUstensil) {
     }
 
     console.log(tags);
+
+    displayTags();
 }

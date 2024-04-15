@@ -33,4 +33,6 @@ export function handleApplianceSelection(selectedAppliance) {
     }
 
     console.log(tags);
+
+    displayTags();
 }

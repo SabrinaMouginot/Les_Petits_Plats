@@ -25,4 +25,6 @@ function handleIngredientSelection(selectedIngredient) {
     }
 
     console.log(tags);
+
+    displayTags();
 }
