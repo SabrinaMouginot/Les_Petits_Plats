@@ -1,33 +1,10 @@
 // export { generateDropdown, getUniqueItems, handleSelection };
 
 
-export function getUniqueItems(recipes, property) {
-    let uniqueItemsSet = new Set(); // Utiliser un ensemble pour stocker les éléments uniques
-
-    // recipes.forEach(recipe => {
-    //     recipe.ingredients.forEach(ingredientObject => {
-    //         const ingredientName = ingredientObject.ingredient;
-            
-    //     });
-    // });
+export function getUniqueItems(elements) {
     
-
-    // Parcourir chaque recette pour extraire les éléments de la propriété spécifiée
-    recipes.forEach(recipe => {
-        const propertyValue = recipe[property];
-        if (Array.isArray(propertyValue)) {
-            propertyValue.forEach(item => {
-                if (typeof item === 'string') { // Vérifier si l'élément est une chaîne de caractères
-                    uniqueItemsSet.add(item); // Ajouter chaque élément à l'ensemble
-                }
-            });
-        } else if (typeof propertyValue === 'string') { // Vérifier si la propriété est une chaîne de caractères
-            uniqueItemsSet.add(propertyValue);
-        }
-    });
-
     // Convertir l'ensemble en un tableau et le trier par ordre alphabétique
-    let uniqueItemsArray = Array.from(uniqueItemsSet).sort((a, b) => a.localeCompare(b));
+    let uniqueItemsArray = Array.from(new Set(elements)).sort((a, b) => a.localeCompare(b));
 
     return uniqueItemsArray;
 }
@@ -60,19 +37,19 @@ export function generateDropdown(uniqueItems, dropdownSelector, handleSelection)
 }
 
 
-// Fonction générique pour gérer la sélection d'un élément
-export function handleSelection(selectedItem) {
-    let selectedItemDisplay = document.querySelector(`.selected-${selectedItem}`);
-    if (!selectedItemDisplay) {
-        // Créer l'élément s'il n'existe pas
-        selectedItemDisplay = document.createElement('div');
-        selectedItemDisplay.classList.add(`selected-${selectedItem}`);
-        // Sélectionner l'emplacement où vous souhaitez insérer l'élément (par exemple, le corps du document)
-        const container = document.body;
-        // Ajouter l'élément au conteneur
-        container.appendChild(selectedItemDisplay);
-    }
-    // Mettre à jour le contenu de l'élément
-    selectedItemDisplay.textContent = selectedItem;
-    // Ajouter le reste de la logique de gestion de la sélection ici
-}
+// // Fonction générique pour gérer la sélection d'un élément
+// export function handleSelection(selectedItem) {
+//     let selectedItemDisplay = document.querySelector(`.selected-${selectedItem}`);
+//     if (!selectedItemDisplay) {
+//         // Créer l'élément s'il n'existe pas
+//         selectedItemDisplay = document.createElement('div');
+//         selectedItemDisplay.classList.add(`selected-${selectedItem}`);
+//         // Sélectionner l'emplacement où vous souhaitez insérer l'élément (par exemple, le corps du document)
+//         const container = document.body;
+//         // Ajouter l'élément au conteneur
+//         container.appendChild(selectedItemDisplay);
+//     }
+//     // Mettre à jour le contenu de l'élément
+//     selectedItemDisplay.textContent = selectedItem;
+//     // Ajouter le reste de la logique de gestion de la sélection ici
+// }
