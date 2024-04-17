@@ -127,10 +127,10 @@ document.addEventListener('DOMContentLoaded', function () {
             generateUstensilDropdown(recipes);
 
             const ingredientsButton = document.querySelector('.btn-ingredients');
-            const appliancesButton = document.querySelector('.btn-appliance');
+            const appliancesButton = document.querySelector('.btn-appliances');
             const ustensilsButton = document.querySelector('.btn-ustensils');
             const ingredientsDropdown = document.querySelector('.btn-ingredients .dropdown-menu');
-            const appliancesDropdown = document.querySelector('.btn-appliance .dropdown-menu');
+            const appliancesDropdown = document.querySelector('.btn-appliances .dropdown-menu');
             const ustensilsDropdown = document.querySelector('.btn-ustensils .dropdown-menu');
 
             recipes.forEach(recipe => {

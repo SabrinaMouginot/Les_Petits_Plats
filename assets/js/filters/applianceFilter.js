@@ -5,7 +5,7 @@ import { displayTags } from '../script.js';
 export function generateApplianceDropdown(recipes) {
     const appliances = recipes.map(recipe => recipe.appliance)
     const uniqueAppliances = getUniqueItems(appliances);
-    generateDropdown(uniqueAppliances, '.btn-appliance', handleApplianceSelection);
+    generateDropdown(uniqueAppliances, '.btn-appliances', handleApplianceSelection);
 }
 
 // export function handleApplianceSelection(selectedAppliance) {
