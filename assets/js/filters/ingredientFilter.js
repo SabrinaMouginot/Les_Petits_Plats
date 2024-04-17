@@ -1,10 +1,13 @@
 import { getUniqueItems, generateDropdown } from './filterFactory.js';
 import { tags } from '../script.js';
+import { displayTags } from '../script.js';
 
 export function generateIngredientDropdown(recipes) {
     const ingredients = recipes.map(recipe => recipe.ingredients).flat().map(ing => ing.ingredient)
     const uniqueIngredients = getUniqueItems(ingredients);
-    generateDropdown(uniqueIngredients, '.btn-ingredients', handleIngredientSelection);
+    // generateDropdown(uniqueIngredients, '.btn-ingredients', handleIngredientSelection);
+    generateDropdown(uniqueIngredients, '.btn-ingredients', handleIngredientSelection, displayTags);
+
 }
 
 function handleIngredientSelection(selectedIngredient) {

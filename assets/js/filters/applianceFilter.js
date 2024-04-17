@@ -1,5 +1,6 @@
 import { getUniqueItems, generateDropdown } from './filterFactory.js';
 import { tags } from '../script.js';
+import { displayTags } from '../script.js';
 
 export function generateApplianceDropdown(recipes) {
     const appliances = recipes.map(recipe => recipe.appliance)

@@ -81,3 +81,27 @@ object-fit: cover;
 .selected-ustensil {
     margin-right: 35px;
 }
+
+
+/* Styles pour les boutons de tag */
+.btn-tag {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Styles spécifiques à chaque type de tag */
+.btn-ingredient {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-appliance {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-ustensil {
+    background-color: #28a745;
+    color: #fff;
+}
+
