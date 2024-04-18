@@ -56,9 +56,17 @@ document.addEventListener('DOMContentLoaded', function () {
             recipes.forEach(recipe => {
                 recipe.ingredients.forEach(ingredientObject => {
                     const ingredientName = ingredientObject.ingredient;
-                    // Faites quelque chose avec le nom de l'ingrédient ici
+                    // Faire quelque chose avec le nom de l'ingrédient ici
                 });
             });
+
+            // const ingredientsButton = document.querySelector('.btn-ingredients');
+            const ingredientsArrow = ingredientsButton.querySelector('.dropdown-arrow');
+            
+            // Gestion des événements pour le bouton Ingrédients et sa flèche
+            // ingredientsButton.addEventListener('click', toggleIngredientDropdown);
+            ingredientsArrow.addEventListener('click', toggleIngredientDropdown);
+            
 
             // Gestion des événements pour le bouton Ingrédients et sa flèche
             ingredientsButton.addEventListener('click', toggleIngredientDropdown);

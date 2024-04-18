@@ -67,13 +67,32 @@ object-fit: cover;
 
 /* BOUTONS FILTRES  */
 
-.dropdown-menu {
+/* .dropdown-menu {
     display: none;
     width: 200px;
-}
+} */
 
 .dropdown-menu.show {
     display: block;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px); /* Position juste en dessous du bouton */
+    width: 100%; /* Même largeur que le bouton */
+    display: none;
+}
+
+.dropdown-container.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-container .btn.active .dropdown-arrow {
+    transform: rotate(180deg); /* Inversion de la flèche */
 }
 
 .selected-ingredient,

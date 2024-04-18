@@ -32,7 +32,6 @@ export function generateDropdown(uniqueItems, dropdownSelector, handleSelection,
     });
 }
 
-
 // // Fonction générique pour gérer la sélection d'un élément
 // export function handleSelection(selectedItem) {
 //     let selectedItemDisplay = document.querySelector(`.selected-${selectedItem}`);
