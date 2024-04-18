@@ -8,14 +8,6 @@ export function generateApplianceDropdown(recipes) {
     generateDropdown(uniqueAppliances, '.btn-appliances', handleApplianceSelection);
 }
 
-// export function handleApplianceSelection(selectedAppliance) {
-//     tags.push({
-//         value: selectedAppliance,
-//         type: "appliance"
-//     })
-//     console.log(tags)
-// }
-
 export function handleApplianceSelection(selectedAppliance) {
     // Vérifier si l'appareil sélectionné existe déjà dans tags
     const existingIndex = tags.findIndex(tag => tag.value === selectedAppliance && tag.type === "appliance");

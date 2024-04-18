@@ -1,6 +1,3 @@
-// export { generateDropdown, getUniqueItems, handleSelection };
-
-
 export function getUniqueItems(elements) {
 
     // Convertir l'ensemble en un tableau et le trier par ordre alphabétique
@@ -9,9 +6,7 @@ export function getUniqueItems(elements) {
     return uniqueItemsArray;
 }
 
-
 // Fonction générique pour générer un menu déroulant à partir d'une liste d'éléments uniques
-// export function generateDropdown(uniqueItems, dropdownSelector, handleSelection) {
 export function generateDropdown(uniqueItems, dropdownSelector, handleSelection, displayTags) {
     const dropdownContainer = document.querySelector(dropdownSelector);
     const dropdownMenu = document.createElement('div');
