@@ -1,6 +1,6 @@
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     background-color: #EDEDED;
 }
 
@@ -58,41 +58,44 @@ header input {
 }
 
 .ImgRecipe {
-height: 253px; 
-border-top-left-radius: 21px; 
-border-top-right-radius: 21px; 
-object-fit: cover;
+    height: 253px; 
+    border-top-left-radius: 21px; 
+    border-top-right-radius: 21px; 
+    object-fit: cover;
 }
-
 
 /* BOUTONS FILTRES  */
 
-/* .dropdown-menu {
-    display: none;
-    width: 200px;
-} */
-
-.dropdown-menu.show {
-    display: block;
-}
-
-.dropdown-container {
-    position: relative;
-}
-
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 5px); /* Position juste en dessous du bouton */
-    width: 100%; /* Même largeur que le bouton */
+    top: calc(100%); /* Position juste en dessous du bouton */
+    left: 0; /* Aligner sur la gauche */
+    width: 190px; /* Largeur fixe pour la liste déroulante */
     display: none;
+    border: none; /* Retirer la bordure */
+    margin-top: 0; /* Ajuster la marge supérieure */
+}
+
+.btn-container {
+    position: relative;
+    margin-bottom: 10px; /* Ajouter de l'espace sous les boutons */
+}
+
+.btn {
+    width: 190px; /* Le bouton prend la même largeur que la liste déroulante */
+    display: flex;
+    justify-content: space-between;
+    border: none; /* Retirer la bordure */
+    border-radius: 4px; /* Ajouter une légère courbure aux coins */
+    padding: 8px 12px; /* Ajuster le rembourrage pour un meilleur aspect */
+}
+
+.btn:hover {
+    background-color: #f0f0f0; /* Changement de couleur de fond au survol */
 }
 
 .dropdown-container.active .dropdown-menu {
     display: block;
-}
-
-.dropdown-container .btn.active .dropdown-arrow {
-    transform: rotate(180deg); /* Inversion de la flèche */
 }
 
 .selected-ingredient,
@@ -100,7 +103,6 @@ object-fit: cover;
 .selected-ustensil {
     margin-right: 35px;
 }
-
 
 /* Styles pour les boutons de tag */
 .btn-tag {
