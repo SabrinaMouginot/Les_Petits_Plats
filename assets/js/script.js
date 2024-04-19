@@ -60,14 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            // const ingredientsButton = document.querySelector('.btn-ingredients');
-            const ingredientsArrow = ingredientsButton.querySelector('.dropdown-arrow');
-            
-            // Gestion des événements pour le bouton Ingrédients et sa flèche
-            // ingredientsButton.addEventListener('click', toggleIngredientDropdown);
-            ingredientsArrow.addEventListener('click', toggleIngredientDropdown);
-            
-
             // Gestion des événements pour le bouton Ingrédients et sa flèche
             ingredientsButton.addEventListener('click', toggleIngredientDropdown);
             ingredientsButton.querySelector('.dropdown-arrow').addEventListener('click', toggleIngredientDropdown);
