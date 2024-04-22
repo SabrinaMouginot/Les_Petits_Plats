@@ -39,7 +39,7 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
     searchBar.placeholder = 'Rechercher...';
     searchBar.addEventListener('input', (event) => {
         const searchText = event.target.value.toLowerCase();
-        handleSearch(searchText); // Appeler la fonction handleSearch avec le texte de recherche
+        handleSearch(searchText, uniqueItems); // Appeler la fonction handleSearch avec le texte de recherche
     });
 
     // Ajouter la barre de recherche à la liste déroulante
@@ -61,13 +61,17 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
 
     // Gérer l'ouverture/fermeture de la liste déroulante
     container.addEventListener('click', () => {
+        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        dropdowns.forEach(dropdown => {
+            dropdown.style.display = 'none';
+        });
         dropdownMenu.style.display = 'block'; // Afficher la liste déroulante lorsque le bouton est cliqué
         searchBar.focus(); // Mettre le focus sur la barre de recherche lorsque la liste déroulante est ouverte
     });
 }
 
 // Fonction appelée lors de la recherche dans la barre de recherche
-export function handleSearch(searchText) {
+export function handleSearch(searchText, uniqueItems) {
     // ajouter la logique de recherche ici en fonction du texte de recherche
     // Convertir le texte de recherche en minuscules pour une correspondance insensible à la casse
     const searchTextLowerCase = searchText.toLowerCase();
