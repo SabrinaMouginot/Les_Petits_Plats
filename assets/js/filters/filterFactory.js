@@ -69,8 +69,26 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
 // Fonction appelée lors de la recherche dans la barre de recherche
 export function handleSearch(searchText) {
     // ajouter la logique de recherche ici en fonction du texte de recherche
-    // Par exemple, filtrer les éléments de la liste déroulante en fonction du texte de recherche
-    // ...
+    // Convertir le texte de recherche en minuscules pour une correspondance insensible à la casse
+    const searchTextLowerCase = searchText.toLowerCase();
+
+    // Sélectionner tous les éléments de la liste déroulante que vous souhaitez filtrer
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+    // Parcourir chaque élément de la liste déroulante
+    dropdownItems.forEach(item => {
+        // Récupérer le texte de chaque élément
+        const itemText = item.textContent.toLowerCase();
+
+        // Vérifier si le texte de l'élément contient le texte de recherche
+        if (itemText.includes(searchTextLowerCase)) {
+            // Afficher l'élément s'il correspond au texte de recherche
+            item.style.display = 'block';
+        } else {
+            // Masquer l'élément s'il ne correspond pas au texte de recherche
+            item.style.display = 'none';
+        }
+    });
 }
 
 
