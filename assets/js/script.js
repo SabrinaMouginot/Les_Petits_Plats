@@ -2,6 +2,7 @@ import RecipeFactory from './recipeFactory.js';
 import { generateIngredientDropdown } from './filters/ingredientFilter.js';
 import { generateApplianceDropdown } from './filters/applianceFilter.js';
 import { generateUstensilDropdown } from './filters/ustensilFilter.js';
+import { createSearchBar } from './filters/filterFactory.js';
 
 const tags = [];
 
@@ -35,7 +36,6 @@ export function displayTags() {
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     RecipeFactory.loadRecipes()
         .then(recipes => {
@@ -52,13 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const ingredientsDropdown = document.querySelector('.btn-ingredients .dropdown-menu');
             const appliancesDropdown = document.querySelector('.btn-appliances .dropdown-menu');
             const ustensilsDropdown = document.querySelector('.btn-ustensils .dropdown-menu');
+            const containerSelector = '.dropdown-menu';
+            const container = document.querySelector(containerSelector);
 
-            recipes.forEach(recipe => {
-                recipe.ingredients.forEach(ingredientObject => {
-                    const ingredientName = ingredientObject.ingredient;
-                    // Faire quelque chose avec le nom de l'ingrédient ici
-                });
-            });
+
+            // Créer la barre de recherche et la placer dans le conteneur
+            createSearchBar(containerSelector);
 
             // Gestion des événements pour le bouton Ingrédients et sa flèche
             ingredientsButton.addEventListener('click', toggleIngredientDropdown);
@@ -71,13 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
             ustensilsButton.addEventListener('click', toggleDropdown(ustensilsDropdown));
 
             function toggleIngredientDropdown() {
-                closeDropdowns(appliancesDropdown, ustensilsDropdown);
-                ingredientsDropdown.classList.toggle('show');
+                if (ingredientsDropdown) { // Vérifier si ingredientsDropdown est défini
+                    closeDropdowns(appliancesDropdown, ustensilsDropdown);
+                    ingredientsDropdown.classList.toggle('show');
+                }
             }
 
             function toggleDropdown(dropdown) {
                 return function () {
-                    closeDropdowns(ingredientsDropdown, dropdown === appliancesDropdown ? ustensilsDropdown : appliancesDropdown);
+                    closeDropdowns(ingredientsDropdown, appliancesDropdown, ustensilsDropdown); // Fermer tous les menus déroulants
                     dropdown.classList.toggle('show');
                 };
             }
@@ -91,3 +92,4 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 export { tags };
+

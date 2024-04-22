@@ -135,3 +135,13 @@ header input {
     background-color: #28a745;
     color: #fff;
 }
+
+/* Style pour cacher la barre de recherche initialement */
+.search-bar.hide {
+    display: none;
+}
+
+/* Style pour rendre la barre de recherche visible lorsque la liste déroulante est ouverte */
+.search-bar.show {
+    display: block;
+}

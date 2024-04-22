@@ -1,3 +1,21 @@
+//Barre de recherche en haut de la liste déroulante
+export function createSearchBar(containerSelector, handleSearch) {
+    const container = document.querySelector(containerSelector);
+
+    // Créer la barre de recherche
+    const searchBar = document.createElement('input');
+    searchBar.type = 'text';
+    searchBar.classList.add('form-control', 'mb-2');
+    searchBar.placeholder = 'Rechercher...';
+    searchBar.addEventListener('input', (event) => {
+        const searchText = event.target.value.toLowerCase();
+        handleSearch(searchText);
+    });
+
+    // Ajouter la barre de recherche au conteneur
+    container.appendChild(searchBar);
+}
+
 export function getUniqueItems(elements) {
 
     // Convertir l'ensemble en un tableau et le trier par ordre alphabétique
@@ -6,11 +24,26 @@ export function getUniqueItems(elements) {
     return uniqueItemsArray;
 }
 
-// Fonction générique pour générer un menu déroulant à partir d'une liste d'éléments uniques
-export function generateDropdown(uniqueItems, dropdownSelector, handleSelection, displayTags) {
-    const dropdownContainer = document.querySelector(dropdownSelector);
+export function generateDropdown(uniqueItems, containerSelector, handleSelection, handleSearch) {
+    const container = document.querySelector(containerSelector);
+
+    // Créer la liste déroulante
     const dropdownMenu = document.createElement('div');
     dropdownMenu.classList.add('dropdown-menu');
+    dropdownMenu.style.display = 'none'; // Cacher la liste déroulante initialement
+
+    // Créer la barre de recherche
+    const searchBar = document.createElement('input');
+    searchBar.type = 'text';
+    searchBar.classList.add('form-control', 'mb-2', 'search-bar', 'show'); // Rendre la barre de recherche initialement visible
+    searchBar.placeholder = 'Rechercher...';
+    searchBar.addEventListener('input', (event) => {
+        const searchText = event.target.value.toLowerCase();
+        handleSearch(searchText); // Appeler la fonction handleSearch avec le texte de recherche
+    });
+
+    // Ajouter la barre de recherche à la liste déroulante
+    dropdownMenu.appendChild(searchBar);
 
     uniqueItems.forEach(item => {
         const menuItem = document.createElement('button');
@@ -18,19 +51,28 @@ export function generateDropdown(uniqueItems, dropdownSelector, handleSelection,
         menuItem.type = 'button';
         menuItem.textContent = item;
         menuItem.addEventListener('click', () => {
-            console.log(`${item} sélectionné :`, item);
             handleSelection(item);
         });
         dropdownMenu.appendChild(menuItem);
     });
 
-    dropdownContainer.appendChild(dropdownMenu);
+    // Ajouter la liste déroulante au conteneur
+    container.appendChild(dropdownMenu);
 
-    const dropdownArrow = document.querySelector('.dropdown-arrow');
-    dropdownArrow.addEventListener('click', function () {
-        dropdownMenu.classList.toggle('show');
+    // Gérer l'ouverture/fermeture de la liste déroulante
+    container.addEventListener('click', () => {
+        dropdownMenu.style.display = 'block'; // Afficher la liste déroulante lorsque le bouton est cliqué
+        searchBar.focus(); // Mettre le focus sur la barre de recherche lorsque la liste déroulante est ouverte
     });
 }
+
+// Fonction appelée lors de la recherche dans la barre de recherche
+export function handleSearch(searchText) {
+    // ajouter la logique de recherche ici en fonction du texte de recherche
+    // Par exemple, filtrer les éléments de la liste déroulante en fonction du texte de recherche
+    // ...
+}
+
 
 // // Fonction générique pour gérer la sélection d'un élément
 // export function handleSelection(selectedItem) {
