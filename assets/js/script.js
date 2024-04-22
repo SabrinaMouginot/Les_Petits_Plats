@@ -60,36 +60,75 @@ document.addEventListener('DOMContentLoaded', function () {
             createSearchBar(containerSelector);
 
             // Gestion des événements pour le bouton Ingrédients et sa flèche
-            ingredientsButton.addEventListener('click', toggleIngredientDropdown);
-            ingredientsButton.querySelector('.dropdown-arrow').addEventListener('click', toggleIngredientDropdown);
+            ingredientsButton.addEventListener('click', toggleDropdown(ingredientsDropdown, [appliancesDropdown, ustensilsDropdown]));
+            ingredientsButton.querySelector('.dropdown-arrow').addEventListener('click', toggleDropdown(ingredientsDropdown, [appliancesDropdown, ustensilsDropdown]));
 
             // Gestion des événements pour le bouton Appareils
-            appliancesButton.addEventListener('click', toggleDropdown(appliancesDropdown));
+            appliancesButton.addEventListener('click', toggleDropdown(appliancesDropdown, [ingredientsDropdown, ustensilsDropdown]));
 
             // Gestion des événements pour le bouton Ustensiles
-            ustensilsButton.addEventListener('click', toggleDropdown(ustensilsDropdown));
+            ustensilsButton.addEventListener('click', toggleDropdown(ustensilsDropdown, [ingredientsDropdown, appliancesDropdown]));
+
+
+            // // Gestion des événements pour le bouton Ingrédients et sa flèche
+            // ingredientsButton.addEventListener('click', toggleIngredientDropdown);
+            // ingredientsButton.querySelector('.dropdown-arrow').addEventListener('click', toggleIngredientDropdown);
+
+            // // Gestion des événements pour le bouton Appareils
+            // appliancesButton.addEventListener('click', toggleDropdown(appliancesDropdown));
+
+            // // Gestion des événements pour le bouton Ustensiles
+            // ustensilsButton.addEventListener('click', toggleDropdown(ustensilsDropdown));
 
             function toggleIngredientDropdown() {
-                if (ingredientsDropdown) { // Vérifier si ingredientsDropdown est défini
-                    closeDropdowns(appliancesDropdown, ustensilsDropdown);
-                    ingredientsDropdown.classList.toggle('show');
-                }
+                closeDropdowns(appliancesDropdown, ustensilsDropdown);
+                ingredientsDropdown.classList.toggle('show');
             }
 
-            function toggleDropdown(dropdown) {
+            function toggleDropdown(dropdown, otherDropdowns) {
                 return function () {
-                    closeDropdowns(ingredientsDropdown, appliancesDropdown, ustensilsDropdown); // Fermer tous les menus déroulants
-                    dropdown.classList.toggle('show');
+                    // Fermer tous les menus déroulants, sauf celui qui est associé au bouton cliqué
+                    otherDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown.classList.contains('show')) {
+                            otherDropdown.classList.remove('show');
+                        }
+                    });
+                    dropdown.classList.toggle('show'); // Ouvrir le menu déroulant associé au bouton cliqué
                 };
             }
+
+            // function toggleDropdown(dropdown) {
+            //     return function () {
+            //         closeDropdowns(ingredientsDropdown, appliancesDropdown, ustensilsDropdown);
+            //         dropdown.classList.toggle('show');
+            //     };
+            // }
 
             function closeDropdowns(...dropdowns) {
                 dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
             }
+
+
+            // function toggleIngredientDropdown() {
+            //     if (ingredientsDropdown) { // Vérifier si ingredientsDropdown est défini
+            //         closeDropdowns(appliancesDropdown, ustensilsDropdown);
+            //         ingredientsDropdown.classList.toggle('show');
+            //     }
+            // }
+
+            // function toggleDropdown(dropdown) {
+            //     return function () {
+            //         closeDropdowns(ingredientsDropdown, appliancesDropdown, ustensilsDropdown); // Fermer tous les menus déroulants
+            //         dropdown.classList.toggle('show');
+            //     };
+            // }
+
+            // function closeDropdowns(...dropdowns) {
+            //     dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+            // }
 
         })
         .catch(error => console.error('Erreur de chargement des données :', error));
 });
 
 export { tags };
-
