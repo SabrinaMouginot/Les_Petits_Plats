@@ -33,7 +33,6 @@ function handleIngredientSelection(selectedIngredient) {
 }
 
 
-
 // // Fonction appelée lors de la recherche dans la barre de recherche des ingrédients
 // export function handleIngredientSearch(searchText) {
 //     // Vous pouvez ajouter la logique de recherche ici en fonction du texte de recherche
@@ -41,3 +40,5 @@ function handleIngredientSelection(selectedIngredient) {
 //     // ...
 //     console.log("...")
 // }
+
+

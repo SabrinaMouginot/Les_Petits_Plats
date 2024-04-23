@@ -114,6 +114,7 @@ header input {
 .selected-appliance,
 .selected-ustensil {
     margin-right: 35px;
+    /* background-color: rgb(255, 209, 91); */
 }
 
 /* Styles pour les boutons de tag */
