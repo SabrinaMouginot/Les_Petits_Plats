@@ -105,6 +105,10 @@ header input {
     background-color: rgb(255, 209, 91); /* Couleur de fond jaune au survol */
 }
 
+.dropdown-menu button:focus,
+.dropdown-menu button:active {
+    background-color: rgb(255, 209, 91);
+}
 
 .selected-ingredient,
 .selected-appliance,
