@@ -48,8 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
             generateApplianceDropdown(recipes);
             generateUstensilDropdown(recipes);
 
-            setupFilterListeners(); // Appel à la fonction setupFilterListeners une fois que les recettes sont chargées
-
         })
         .catch(error => console.error('Erreur de chargement des données :', error));
 });
