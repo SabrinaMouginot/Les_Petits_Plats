@@ -60,15 +60,17 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
     container.appendChild(dropdownMenu);
 
     // Gérer l'ouverture/fermeture de la liste déroulante
-    container.addEventListener('click', () => {
-        const dropdowns = document.querySelectorAll('.dropdown-menu');
-        dropdowns.forEach(dropdown => {
-            dropdown.style.display = 'none';
-        });
-        dropdownMenu.style.display = 'block'; // Afficher la liste déroulante lorsque le bouton est cliqué
-        searchBar.focus(); // Mettre le focus sur la barre de recherche lorsque la liste déroulante est ouverte
+    container.addEventListener('click', (event) => {
+        const dropdownArrow = event.target.closest('.dropdown-arrow');
+        if (dropdownArrow) {
+            const isOpen = dropdownMenu.style.display === 'block';
+            dropdownMenu.style.display = isOpen ? 'none' : 'block';
+            dropdownArrow.classList.toggle('rotate', !isOpen);
+            searchBar.focus(); // Mettre le focus sur la barre de recherche lorsque la liste déroulante est ouverte
+        }
     });
 }
+
 
 // Fonction appelée lors de la recherche dans la barre de recherche
 export function handleSearch(searchText, uniqueItems) {

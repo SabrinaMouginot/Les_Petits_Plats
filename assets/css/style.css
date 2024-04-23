@@ -93,8 +93,6 @@ header input {
 }
 
 .btn:hover {
-    /* background-color: rgb(255, 209, 91);
-    background-color: #FFD15B;  */
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -145,3 +143,8 @@ header input {
 .search-bar.show {
     display: block;
 }
+
+.rotate {
+    transform: rotateX(180deg);
+}
+
