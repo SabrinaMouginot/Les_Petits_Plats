@@ -56,5 +56,6 @@ const RecipeFactory = {
     }
 };
 
+
 // Exporter le module pour une utilisation dans d'autres fichiers
 export default RecipeFactory;
