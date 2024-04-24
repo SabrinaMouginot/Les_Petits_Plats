@@ -36,28 +36,6 @@ export function displayTags() {
     });
 }
 
-// // charger les recettes et initialiser l'application lorsque le DOM est prêt
-// document.addEventListener('DOMContentLoaded', function () {
-//     const searchBar = document.querySelector('#searchBar');
-//     searchBar.addEventListener('input', filterRecipes);
-
-//     RecipeFactory.loadRecipes()
-//         .then(recipes => {
-//             allRecipes = recipes;
-
-//             RecipeFactory.renderRecipes(recipes);
-//             generateIngredientDropdown(recipes);
-//             generateApplianceDropdown(recipes);
-//             generateUstensilDropdown(recipes);
-
-//         })
-//         .catch(error => console.error('Erreur de chargement des données :', error));
-// });
-
-// function filterRecipes(e) {
-//     console.log(e);
-// }
-
 // filtrer les recettes en fonction du texte de recherche saisi 
 function filterRecipes(searchText) {
     // Convertir le texte de recherche en minuscules pour une correspondance insensible à la casse
@@ -82,14 +60,29 @@ function filterRecipes(searchText) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const searchBar = document.querySelector('#searchBar');
-    searchBar.addEventListener('input', function (event) {
-        filterRecipes(event.target.value);
+    const searchButton = document.querySelector('.loupe button'); // Sélectionnez le bouton de la loupe
+
+    let searchText = ''; // Variable pour stocker le texte de recherche
+    let filteredRecipes = []; // Variable pour stocker les recettes filtrées
+
+    // Ajoutez un écouteur d'événements pour le clic sur le bouton de la loupe
+    searchButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+        if (searchText !== '') { // Vérifiez si la barre de recherche n'est pas vide
+            filterRecipes(searchText); // Filtrez les recettes avec le texte de recherche
+        } else {
+            // Si la barre de recherche est vide, réinitialisez l'affichage
+            RecipeFactory.renderRecipes(allRecipes); // Affichez toutes les recettes
+            filteredRecipes = []; // Réinitialisez la liste des recettes filtrées
+        }
     });
 
     // Chargez les recettes et affichez-les initialement
     RecipeFactory.loadRecipes()
         .then(recipes => {
             allRecipes = recipes;
+            filteredRecipes = recipes; // Initialisez la liste des recettes filtrées avec toutes les recettes
 
             RecipeFactory.renderRecipes(recipes);
             generateIngredientDropdown(recipes);
@@ -98,7 +91,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         })
         .catch(error => console.error('Erreur de chargement des données :', error));
-});
 
+    // Ajoutez un écouteur d'événements pour le changement de texte dans la barre de recherche
+    searchBar.addEventListener('input', function (event) {
+        searchText = event.target.value.trim(); // Mettez à jour le texte de recherche
+        // // Réinitialisez la liste des recettes filtrées lorsque la barre de recherche est vidée
+        // if (searchText === '') {
+        //     filteredRecipes = []; // Réinitialisez les recettes filtrées
+        // }
+    });
+});
 
 export { tags };
