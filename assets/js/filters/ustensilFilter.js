@@ -1,4 +1,4 @@
-import { getUniqueItems, generateDropdown } from './filterFactory.js';
+import { getUniqueItems, generateDropdown, handleSearch } from './filterFactory.js';
 import { tags } from '../script.js';
 import { displayTags } from '../script.js';
 
@@ -6,7 +6,7 @@ export function generateUstensilDropdown(recipes) {
     const ustensils = recipes.map(recipe => recipe.ustensils).flat()
     const uniqueUstensils = getUniqueItems(ustensils);
     console.log(uniqueUstensils);
-    generateDropdown(uniqueUstensils, '.btn-ustensils', handleUstensilSelection);
+    generateDropdown(uniqueUstensils, '.btn-ustensils', handleUstensilSelection, handleSearch);
 }
 
 export function handleUstensilSelection(selectedUstensil) {
@@ -31,3 +31,8 @@ export function handleUstensilSelection(selectedUstensil) {
     displayTags();
 }
 
+// Dans generateIngredientDropdown() de ingredientFilter.js, generateApplianceDropdown() de applianceFilter.js et generateUstensilDropdown() de ustensilFilter.js
+searchBar.addEventListener('input', (event) => {
+    const searchText = event.target.value.toLowerCase();
+    handleSearch(searchText, uniqueUstensils); // Appeler la fonction handleSearch avec le texte de recherche
+});
