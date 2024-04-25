@@ -30,3 +30,4 @@ export function handleUstensilSelection(selectedUstensil) {
 
     displayTags();
 }
+
