@@ -30,8 +30,3 @@ export function handleApplianceSelection(selectedAppliance) {
     displayTags();
 }
 
-// Dans generateIngredientDropdown() de ingredientFilter.js, generateApplianceDropdown() de applianceFilter.js et generateUstensilDropdown() de ustensilFilter.js
-searchBar.addEventListener('input', (event) => {
-    const searchText = event.target.value.toLowerCase();
-    handleSearch(searchText, uniqueIngredients); // Appeler la fonction handleSearch avec le texte de recherche
-});
