@@ -71,7 +71,6 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
     });
 }
 
-
 // Fonction appelée lors de la recherche dans la barre de recherche
 export function handleSearch(searchText, uniqueItems) {
     // ajouter la logique de recherche ici en fonction du texte de recherche
@@ -97,36 +96,3 @@ export function handleSearch(searchText, uniqueItems) {
     });
 
 }
-
-// Fonction pour gérer la sélection d'un élément de la liste déroulante
-export function handleSelection(selectedItem, button) {
-    // Vérifier si l'élément est déjà sélectionné
-    const isSelected = button.classList.contains('dropdown');
-
-    if (!isSelected) {
-        // Si l'élément n'est pas déjà sélectionné, l'ajouter à la liste des éléments sélectionnés
-        button.classList.add('dropdown');
-    } else {
-        // Si l'élément est déjà sélectionné, le retirer de la liste des éléments sélectionnés
-        button.classList.remove('dropdown');
-    }
-}
-
-
-
-// // Fonction générique pour gérer la sélection d'un élément
-// export function handleSelection(selectedItem) {
-//     let selectedItemDisplay = document.querySelector(`.selected-${selectedItem}`);
-//     if (!selectedItemDisplay) {
-//         // Créer l'élément s'il n'existe pas
-//         selectedItemDisplay = document.createElement('div');
-//         selectedItemDisplay.classList.add(`selected-${selectedItem}`);
-//         // Sélectionner l'emplacement où vous souhaitez insérer l'élément (par exemple, le corps du document)
-//         const container = document.body;
-//         // Ajouter l'élément au conteneur
-//         container.appendChild(selectedItemDisplay);
-//     }
-//     // Mettre à jour le contenu de l'élément
-//     selectedItemDisplay.textContent = selectedItem;
-//     // Ajouter le reste de la logique de gestion de la sélection ici
-// }

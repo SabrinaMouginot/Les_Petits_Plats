@@ -1,4 +1,4 @@
-import { getUniqueItems, generateDropdown } from './filterFactory.js';
+import { getUniqueItems, generateDropdown, handleSearch } from './filterFactory.js';
 import { tags } from '../script.js';
 import { displayTags } from '../script.js';
 
@@ -6,7 +6,7 @@ import { displayTags } from '../script.js';
 export function generateIngredientDropdown(recipes) {
     const ingredients = recipes.map(recipe => recipe.ingredients).flat().map(ing => ing.ingredient)
     const uniqueIngredients = getUniqueItems(ingredients);
-    generateDropdown(uniqueIngredients, '.btn-ingredients', handleIngredientSelection, displayTags);
+    generateDropdown(uniqueIngredients, '.btn-ingredients', handleIngredientSelection, handleSearch);
 }
 
 // Fonction appelée lorsqu'un ingrédient est sélectionné dans le menu déroulant
@@ -28,17 +28,5 @@ function handleIngredientSelection(selectedIngredient) {
     }
 
     console.log(tags);
-
     displayTags();
 }
-
-
-// // Fonction appelée lors de la recherche dans la barre de recherche des ingrédients
-// export function handleIngredientSearch(searchText) {
-//     // Vous pouvez ajouter la logique de recherche ici en fonction du texte de recherche
-//     // Par exemple, filtrer les ingrédients en fonction du texte de recherche et mettre à jour le menu déroulant
-//     // ...
-//     console.log("...")
-// }
-
-
