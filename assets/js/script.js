@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.error('Erreur lors du chargement des recettes :', error);
     }
 
-// document.addEventListener('DOMContentLoaded', function () {
+
     const searchBar = document.querySelector('#searchBar');
     const searchButton = document.querySelector('.loupe button'); // Sélectionnez le bouton de la loupe
 
