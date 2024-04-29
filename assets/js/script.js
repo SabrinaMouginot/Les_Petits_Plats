@@ -67,13 +67,15 @@ function filterRecipes(searchText) {
     const searchTextLowerCase = searchText.toLowerCase();
 
     // Filtrer les recettes en fonction du texte de recherche
-    let filteredRecipes = allRecipes.filter(recipe =>
-        recipe.name.toLowerCase().includes(searchTextLowerCase) ||
-        recipe.description.toLowerCase().includes(searchTextLowerCase) ||
-        recipe.ingredients.some(ingredient =>
-            ingredient.ingredient.toLowerCase().includes(searchTextLowerCase)
-        )
-    );
+    // let filteredRecipes = allRecipes.filter(recipe =>
+    //     recipe.name.toLowerCase().includes(searchTextLowerCase) ||
+    //     recipe.description.toLowerCase().includes(searchTextLowerCase) ||
+    //     recipe.ingredients.some(ingredient =>
+    //         ingredient.ingredient.toLowerCase().includes(searchTextLowerCase)
+    //     )
+    // );
+
+    let filteredRecipes = [];
 
     // Filtrer les recettes en fonction des tags sélectionnés
     filteredRecipes = filterRecipesByTags(filteredRecipes);
