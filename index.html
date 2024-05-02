@@ -57,11 +57,10 @@
         </div>
     </header>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="btn-container mt-4 mb-2 d-flex justify-content-between align-items-center">
             <div class="btn-group mb-4 d-flex flex-wrap">
                 <div class="card dropdown mb-3 col-auto me-md-5">
-                    <!-- <div class="btn btn-lg dropdown-toggle btn-ingredients bg-white"> -->
                     <div class="btn btn-lg btn-ingredients bg-white">
                         <span class="btn-tag-title">Ingrédients</span>
                         <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
@@ -76,7 +75,6 @@
                     </div>
                 </div>
                 <div class="card dropdown mb-3 col-auto">
-                    <!-- <div class="btn btn-lg dropdown-toggle btn-ustensils bg-white"> -->
                     <div class="btn btn-lg btn-ustensils bg-white">
                         <span class="btn-tag-title">Ustensiles</span>
                         <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
@@ -98,7 +96,68 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 card-container mt-4"></div>
+    </div> -->
+
+    <div class="container">
+        <div class="btn-container mt-4 mb-2 d-flex justify-content-between align-items-center">
+            <div class="btn-group mb-4 d-flex flex-wrap">
+                <div class="card dropdown mb-3 col-auto me-md-5">
+                    <div class="dropdown">
+                        <button class="btn btn-lg btn-ingredients bg-white dropdown-toggle" type="button"
+                            id="dropdownIngredients" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ingrédients
+                            <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
+                                aria-hidden="true" />
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownIngredients">
+                            <!-- Liste d'ingrédients générée dynamiquement par JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="card dropdown mb-3 col-auto me-md-5">
+                    <div class="dropdown">
+                        <button class="btn btn-lg btn-appliances bg-white dropdown-toggle" type="button"
+                            id="dropdownAppliances" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appareils
+                            <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
+                                aria-hidden="true" />
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownAppliances">
+                            <!-- Liste d'appareils générée dynamiquement par JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="card dropdown mb-3 col-auto">
+                    <div class="dropdown">
+                        <button class="btn btn-lg btn-ustensils bg-white dropdown-toggle" type="button"
+                            id="dropdownUstensils" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ustensiles
+                            <img src="./assets/images/dropdown.svg" alt="menu déroulant" class="ms-3 dropdown-arrow"
+                                aria-hidden="true" />
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownUstensils">
+                            <!-- Liste d'ustensiles générée dynamiquement par JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ml-auto">
+                <p class="mb-4" id="totalRecipesCount"></p>
+            </div>
+        </div>
+
+        <div class="filter-container d-flex align-items-center">
+            <div class="selected-ingredient"></div>
+            <div class="selected-appliance"></div>
+            <div class="selected-ustensil"></div>
+        </div>
+
+        <div class="card-container mt-4">
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 card-container mt-4"></div>
     </div>
+
 
     <script type="module" src="assets/js/script.js"></script>
 
