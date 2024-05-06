@@ -87,6 +87,15 @@ function filterRecipes(searchText) {
                 recipe.description.toLowerCase().includes(searchTextLowerCase)) {
     
                 // Vérifier si l'un des ingrédients de la recette contient le texte de recherche
+                let ingredientMatch = false;
+                for (let j = 0; j < recipe.ingredients.length; j++) {
+                    const ingredient = recipe.ingredients[j].ingredient.toLowerCase();
+                    if (ingredient.includes(searchTextLowerCase)) {
+                        ingredientMatch = true;
+                        break;
+                    }
+                }
+                
                 // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
 
             }
