@@ -63,6 +63,7 @@ function filterRecipesByTags(recipes) {
 
 // filtrer les recettes en fonction du texte de recherche saisi 
 function filterRecipes(searchText) {
+    console.log('Filtrage des recettes avec:', searchText);
     // Convertir le texte de recherche en minuscules pour une correspondance insensible à la casse
     const searchTextLowerCase = searchText.toLowerCase();
 
@@ -104,8 +105,12 @@ function filterRecipes(searchText) {
     }
 
 
-    // Filtrer les recettes en fonction des tags sélectionnés
-    filteredRecipes = filterRecipesByTags(filteredRecipes);
+    console.log('Recettes filtrées:', filteredRecipes); // Vérifiez les recettes filtrées
+
+    // // Afficher les recettes filtrées
+    // RecipeFactory.renderRecipes(filteredRecipes);
+    // // Filtrer les recettes en fonction des tags sélectionnés
+    // filteredRecipes = filterRecipesByTags(filteredRecipes);
 
     // Effacer le contenu actuel des recettes affichées
     const cardContainer = document.querySelector('.card-container');
@@ -131,6 +136,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Charger les recettes et afficher initialement
         allRecipes = recipesData;
+        console.log(allRecipes); // Vérifiez le contenu des recettes chargées
         RecipeFactory.renderRecipes(allRecipes);
         generateIngredientDropdown(allRecipes);
         generateApplianceDropdown(allRecipes);
@@ -171,6 +177,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Ajoutez un écouteur d'événements pour le changement de texte dans la barre de recherche
     searchBar.addEventListener('input', function (event) {
         searchText = event.target.value.trim(); // Mettez à jour le texte de recherche
+        console.log('Texte de recherche mis à jour:', searchText);
         filterRecipes(searchText); // Filtrez les recettes avec le texte de recherche
     });
 });
