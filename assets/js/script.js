@@ -95,9 +95,11 @@ function filterRecipes(searchText) {
                         break;
                     }
                 }
-                
-                // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
 
+                // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
+                if (ingredientMatch) {
+                    filteredRecipes.push(recipe);
+                }
             }
         }
     
