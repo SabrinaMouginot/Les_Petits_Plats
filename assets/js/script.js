@@ -107,10 +107,10 @@ function filterRecipes(searchText) {
 
     console.log('Recettes filtrées:', filteredRecipes); // Vérifiez les recettes filtrées
 
-    // // Afficher les recettes filtrées
-    // RecipeFactory.renderRecipes(filteredRecipes);
-    // // Filtrer les recettes en fonction des tags sélectionnés
-    // filteredRecipes = filterRecipesByTags(filteredRecipes);
+    // Afficher les recettes filtrées
+    RecipeFactory.renderRecipes(filteredRecipes);
+    // Filtrer les recettes en fonction des tags sélectionnés
+    filteredRecipes = filterRecipesByTags(filteredRecipes);
 
     // Effacer le contenu actuel des recettes affichées
     const cardContainer = document.querySelector('.card-container');
