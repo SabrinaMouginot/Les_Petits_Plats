@@ -86,29 +86,20 @@ function filterRecipes(searchText) {
         // Vérifier si le nom de la recette ou sa description contient le texte de recherche
         if (recipe.name.toLowerCase().includes(searchTextLowerCase) ||
             recipe.description.toLowerCase().includes(searchTextLowerCase)) {
+                filteredRecipes.push(recipe);
 
+        } else {
             // Vérifier si l'un des ingrédients de la recette contient le texte de recherche
-            let ingredientMatch = false;
             for (let j = 0; j < recipe.ingredients.length; j++) {
                 const ingredient = recipe.ingredients[j].ingredient.toLowerCase();
-                console.log('Vérification de l\'ingrédient:', ingredient);
 
                 if (ingredient.includes(searchTextLowerCase)) {
-                    ingredientMatch = true;
-                    console.log('Correspondance trouvée pour:', ingredient);
+                    filteredRecipes.push(recipe);
                     break;
                 }
             }
-
-            // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
-            if (ingredientMatch) {
-                filteredRecipes.push(recipe);
-            }
         }
     }
-
-
-    console.log('Recettes filtrées:', filteredRecipes); // Vérifiez les recettes filtrées
 
     // Afficher les recettes filtrées
     RecipeFactory.renderRecipes(filteredRecipes);
