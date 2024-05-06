@@ -66,7 +66,7 @@ function filterRecipes(searchText) {
     // Convertir le texte de recherche en minuscules pour une correspondance insensible à la casse
     const searchTextLowerCase = searchText.toLowerCase();
 
-    // Filtrer les recettes en fonction du texte de recherche
+    // // Filtrer les recettes en fonction du texte de recherche
     // let filteredRecipes = allRecipes.filter(recipe =>
     //     recipe.name.toLowerCase().includes(searchTextLowerCase) ||
     //     recipe.description.toLowerCase().includes(searchTextLowerCase) ||
@@ -75,7 +75,14 @@ function filterRecipes(searchText) {
     //     )
     // );
 
+    // Initialiser un tableau vide pour stocker les recettes filtrées
     let filteredRecipes = [];
+    
+        // Parcourir toutes les recettes dans allRecipes
+        for (let i = 0; i < allRecipes.length; i++) {
+
+        }
+    
 
     // Filtrer les recettes en fonction des tags sélectionnés
     filteredRecipes = filterRecipesByTags(filteredRecipes);
