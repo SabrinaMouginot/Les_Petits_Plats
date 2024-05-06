@@ -123,19 +123,9 @@ header input {
 }
 
 /* Styles spécifiques à chaque type de tag */
-.btn-ingredient {
+.btn-ingredient, .btn-appliance, .btn-ustensil {
     background-color: #FFD15B;
     color: #333;
-}
-
-.btn-appliance {
-    background-color: #17a2b8;
-    color: #fff;
-}
-
-.btn-ustensil {
-    background-color: #28a745;
-    color: #fff;
 }
 
 /* Style pour cacher la barre de recherche initialement */
