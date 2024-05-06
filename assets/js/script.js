@@ -91,8 +91,11 @@ function filterRecipes(searchText) {
             let ingredientMatch = false;
             for (let j = 0; j < recipe.ingredients.length; j++) {
                 const ingredient = recipe.ingredients[j].ingredient.toLowerCase();
+                console.log('Vérification de l\'ingrédient:', ingredient);
+
                 if (ingredient.includes(searchTextLowerCase)) {
                     ingredientMatch = true;
+                    console.log('Correspondance trouvée pour:', ingredient);
                     break;
                 }
             }
