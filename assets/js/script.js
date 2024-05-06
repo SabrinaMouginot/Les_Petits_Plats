@@ -80,7 +80,16 @@ function filterRecipes(searchText) {
     
         // Parcourir toutes les recettes dans allRecipes
         for (let i = 0; i < allRecipes.length; i++) {
+            const recipe = allRecipes[i];
+    
+            // Vérifier si le nom de la recette ou sa description contient le texte de recherche
+            if (recipe.name.toLowerCase().includes(searchTextLowerCase) ||
+                recipe.description.toLowerCase().includes(searchTextLowerCase)) {
+    
+                // Vérifier si l'un des ingrédients de la recette contient le texte de recherche
+                // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
 
+            }
         }
     
 
