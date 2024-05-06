@@ -51,6 +51,7 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
         menuItem.type = 'button';
         menuItem.textContent = item;
         menuItem.addEventListener('click', () => {
+            menuItem.classList.add('dropdown-menu-selected');
             handleSelection(item);
         });
         dropdownMenu.appendChild(menuItem);

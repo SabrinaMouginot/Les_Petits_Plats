@@ -110,6 +110,11 @@ header input {
     background-color: rgb(255, 209, 91);
 }
 
+.dropdown-menu-selected {
+    background-color: rgb(255, 209, 91);
+    font-weight: bold;
+}
+
 .selected-ingredient,
 .selected-appliance,
 .selected-ustensil {
