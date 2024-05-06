@@ -77,32 +77,32 @@ function filterRecipes(searchText) {
 
     // Initialiser un tableau vide pour stocker les recettes filtrées
     let filteredRecipes = [];
-    
-        // Parcourir toutes les recettes dans allRecipes
-        for (let i = 0; i < allRecipes.length; i++) {
-            const recipe = allRecipes[i];
-    
-            // Vérifier si le nom de la recette ou sa description contient le texte de recherche
-            if (recipe.name.toLowerCase().includes(searchTextLowerCase) ||
-                recipe.description.toLowerCase().includes(searchTextLowerCase)) {
-    
-                // Vérifier si l'un des ingrédients de la recette contient le texte de recherche
-                let ingredientMatch = false;
-                for (let j = 0; j < recipe.ingredients.length; j++) {
-                    const ingredient = recipe.ingredients[j].ingredient.toLowerCase();
-                    if (ingredient.includes(searchTextLowerCase)) {
-                        ingredientMatch = true;
-                        break;
-                    }
-                }
 
-                // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
-                if (ingredientMatch) {
-                    filteredRecipes.push(recipe);
+    // Parcourir toutes les recettes dans allRecipes
+    for (let i = 0; i < allRecipes.length; i++) {
+        const recipe = allRecipes[i];
+
+        // Vérifier si le nom de la recette ou sa description contient le texte de recherche
+        if (recipe.name.toLowerCase().includes(searchTextLowerCase) ||
+            recipe.description.toLowerCase().includes(searchTextLowerCase)) {
+
+            // Vérifier si l'un des ingrédients de la recette contient le texte de recherche
+            let ingredientMatch = false;
+            for (let j = 0; j < recipe.ingredients.length; j++) {
+                const ingredient = recipe.ingredients[j].ingredient.toLowerCase();
+                if (ingredient.includes(searchTextLowerCase)) {
+                    ingredientMatch = true;
+                    break;
                 }
             }
+
+            // Si le texte de recherche correspond à un ingrédient ou au nom/description de la recette, ajoutez la recette filtrée
+            if (ingredientMatch) {
+                filteredRecipes.push(recipe);
+            }
         }
-    
+    }
+
 
     // Filtrer les recettes en fonction des tags sélectionnés
     filteredRecipes = filterRecipesByTags(filteredRecipes);
@@ -115,7 +115,7 @@ function filterRecipes(searchText) {
     RecipeFactory.renderRecipes(filteredRecipes);
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         const response = await fetch('assets/json/recipes.json');
         const recipesData = await response.json();
