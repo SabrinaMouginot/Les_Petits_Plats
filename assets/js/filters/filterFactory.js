@@ -97,3 +97,23 @@ export function handleSearch(searchText, uniqueItems) {
     });
 
 }
+
+
+// A FAIRE (sélection/déselection des filtres dans le menu déroulant)
+// Vérifier si l'élément actuel (menuItem) est déjà sélectionné en vérifiant s'il a la classe dropdown-menu-selected.
+// Si l'élément est déjà sélectionné (c'est-à-dire isSelected est true), alors nous retirons la classe dropdown-menu-selected, le désélectionnant ainsi.
+// Si l'élément n'est pas déjà sélectionné (c'est-à-dire isSelected est false), alors nous ajoutons la classe dropdown-menu-selected, le sélectionnant ainsi.
+
+
+// // Fonction pour gérer la sélection/déselection des filtres dans le menu déroulant
+// function handleFilterSelection(menuItem) {
+//     const isSelected = menuItem.classList.contains('dropdown-menu-selected');
+
+//     if (isSelected) {
+//         // Si l'élément est déjà sélectionné, le désélectionner en retirant la classe
+//         menuItem.classList.remove('dropdown-menu-selected');
+//     } else {
+//         // Si l'élément n'est pas déjà sélectionné, le sélectionner en ajoutant la classe
+//         menuItem.classList.add('dropdown-menu-selected');
+//     }
+// }
