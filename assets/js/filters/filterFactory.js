@@ -50,10 +50,14 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
         menuItem.classList.add('dropdown-item');
         menuItem.type = 'button';
         menuItem.textContent = item;
+
         menuItem.addEventListener('click', () => {
-            menuItem.classList.add('dropdown-menu-selected');
+            // menuItem.classList.add('dropdown-menu-selected');
+            // Ajouter ou supprimer la classe dropdown-menu-selected au clic
+            menuItem.classList.toggle('dropdown-menu-selected');
             handleSelection(item);
         });
+
         dropdownMenu.appendChild(menuItem);
     });
 
