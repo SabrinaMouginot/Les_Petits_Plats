@@ -84,6 +84,18 @@ function filterRecipes(searchText) {
 
     // Afficher les recettes filtrées
     RecipeFactory.renderRecipes(filteredRecipes);
+    displayRecipesNumber(filteredRecipes.length);
+    generateIngredientDropdown(filteredRecipes);
+    generateApplianceDropdown(filteredRecipes);
+    generateUstensilDropdown(filteredRecipes);
+}
+
+function displayRecipesNumber (length) {
+        // Sélectionner l'élément où afficher le nombre total de recettes
+        const totalRecipesElement = document.getElementById('totalRecipesCount');
+
+        // Afficher le nombre total de recettes dans l'élément
+        totalRecipesElement.textContent = `${length} recette(s)`;
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -91,18 +103,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         const response = await fetch('assets/json/recipes.json');
         const recipesData = await response.json();
 
-        // Compter le nombre total de recettes
-        const totalRecipesCount = recipesData.length;
-
-        // Sélectionner l'élément où afficher le nombre total de recettes
-        const totalRecipesElement = document.getElementById('totalRecipesCount');
-
-        // Afficher le nombre total de recettes dans l'élément
-        totalRecipesElement.textContent = `${totalRecipesCount} recette(s)`;
 
         // Charger les recettes et afficher initialement
         allRecipes = recipesData;
         RecipeFactory.renderRecipes(allRecipes);
+        displayRecipesNumber(allRecipes.length);
         generateIngredientDropdown(allRecipes);
         generateApplianceDropdown(allRecipes);
         generateUstensilDropdown(allRecipes);
@@ -125,6 +130,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         } else {
             // Si la barre de recherche est vide, réinitialisez l'affichage
             RecipeFactory.renderRecipes(allRecipes); // Affichez toutes les recettes
+            displayRecipesNumber(allRecipes.length);
         }
     });
 
@@ -133,6 +139,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         .then(recipes => {
             allRecipes = recipes;
             RecipeFactory.renderRecipes(recipes);
+            displayRecipesNumber(recipes.length);
             generateIngredientDropdown(recipes);
             generateApplianceDropdown(recipes);
             generateUstensilDropdown(recipes);
