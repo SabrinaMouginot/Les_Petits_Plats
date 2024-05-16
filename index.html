@@ -23,8 +23,29 @@
 </head>
 
 <body>
-    <header>
-        <div class="row">
+    <!-- <header class=" d-flex flex-column align-items-center">
+        <div class="col">
+            <img class="m-5 w-50 h-25" src="assets/images/Logo.png" alt="logo du site">
+        </div>
+        <div class="col-5 text-warning text-center">
+            <h1 class="m-0">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
+        </div>
+        <div class="col-8">
+            <form class="form-inline mt-4">
+                <div class="position-relative custom-mb-10">
+                    <input id="searchBar" class="form-control mr-sm-2" type="search"
+                        placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
+                    <div class="position-absolute d-flex align-items-center justify-content-center loupe">
+                        <button class="bg-dark rounded p-2 m-3" type="submit">
+                            <img src="assets/images/Loupe.svg" alt="icone de la Loupe">
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div> -->
+
+        <!-- <div class="row">
             <div class="col">
                 <img class="m-5 w-25 h-25" src="assets/images/Logo.png" alt="logo du site">
             </div>
@@ -41,7 +62,7 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <form class="form-inline mt-4">
-                    <div class="position-relative custom-mb-10"> <!-- Utilisation du composant input-group -->
+                    <div class="position-relative custom-mb-10"> 
                         <input id="searchBar" class="form-control mr-sm-2" type="search"
                             placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
                         <div class="position-absolute d-flex align-items-center justify-content-center loupe">
@@ -54,9 +75,34 @@
 
             </div>
             <div class="col-2"></div>
+        </div> -->
+
+    <!-- </header> -->
+
+    <header class="d-flex flex-column align-items-center">
+        <div class="w-100 d-flex justify-content-between align-items-center">
+            <div class="col-auto">
+                <img class="m-5 w-50 h-25" src="assets/images/Logo.png" alt="logo du site">
+            </div>
+        </div>
+        <div class="col-5 text-warning text-center">
+            <h1 class="m-0">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DELICIEUSES</h1>
+        </div>
+        <div class="col-8">
+            <form class="form-inline mt-4">
+                <div class="position-relative custom-mb-10 w-100">
+                    <input id="searchBar" class="form-control mr-sm-2 w-100" type="search"
+                        placeholder="Rechercher une recette, un ingrédient, ..." aria-label="Rechercher">
+                    <div class="position-absolute d-flex align-items-center justify-content-center loupe" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                        <button class="bg-dark rounded p-2" type="submit">
+                            <img src="assets/images/Loupe.svg" alt="icone de la Loupe">
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </header>
-
+    
     <div class="container">
         <div class="btn-container mt-4 mb-2 d-flex justify-content-between align-items-center">
             <div class="btn-group mb-4 d-flex flex-wrap">
@@ -96,7 +142,7 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 card-container mt-4"></div>
-    </div> 
+    </div>
 
     <script type="module" src="assets/js/script.js"></script>
 
