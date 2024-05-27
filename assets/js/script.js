@@ -179,6 +179,18 @@ export function displayTags() {
 
         // Ajouter la croix de fermeture au tag
         tagButton.appendChild(closeButton);
+
+        // Ajouter un gestionnaire d'événements de clic à la croix de fermeture
+        closeButton.addEventListener('click', () => {
+            // Supprimer le tag de la liste des tags
+            const tagIndex = tags.findIndex(t => t.value === tag.value && t.type === tag.type);
+            if (tagIndex !== -1) {
+                tags.splice(tagIndex, 1);
+            }
+
+            // Rafraîchir l'affichage des tags et des recettes
+            displayTags();
+        });
     });
 
     // Filtrer et afficher les recettes à chaque changement de tag
