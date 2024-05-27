@@ -36,13 +36,13 @@ export function displayTags() {
         // Filtrer et afficher les recettes à chaque changement de tag
         filterRecipes(document.querySelector('#searchBar').value);
 
-        // Créer l'élément de la croix de fermeture
-        const closeButton = document.createElement('span');
-        closeButton.className = 'close-btn';
-        closeButton.innerHTML = '&times;'; // Code HTML pour le symbole "×"
+        // // Créer l'élément de la croix de fermeture
+        // const closeButton = document.createElement('span');
+        // closeButton.className = 'close-btn';
+        // closeButton.innerHTML = '&times;'; // Code HTML pour le symbole "×"
 
-        // Ajouter la croix de fermeture au tag
-        tagButton.appendChild(closeButton);
+        // // Ajouter la croix de fermeture au tag
+        // tagButton.appendChild(closeButton);
     });
 }
 
