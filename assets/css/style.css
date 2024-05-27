@@ -102,7 +102,7 @@ header input {
 }
 
 .dropdown-menu button:hover {
-    background-color: rgb(255, 209, 91); /* Couleur de fond jaune au survol */
+    background-color: rgb(255, 209, 91); 
 }
 
 .dropdown-menu button:focus,
