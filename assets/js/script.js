@@ -32,10 +32,18 @@ export function displayTags() {
         } else if (tag.type === 'ustensil') {
             ustensilContainer.appendChild(tagButton);
         }
-    });
 
-    // Filtrer et afficher les recettes à chaque changement de tag
-    filterRecipes(document.querySelector('#searchBar').value);
+        // Filtrer et afficher les recettes à chaque changement de tag
+        filterRecipes(document.querySelector('#searchBar').value);
+
+        // Créer l'élément de la croix de fermeture
+        const closeButton = document.createElement('span');
+        closeButton.className = 'close-btn';
+        closeButton.innerHTML = '&times;'; // Code HTML pour le symbole "×"
+
+        // Ajouter la croix de fermeture au tag
+        tagButton.appendChild(closeButton);
+    });
 }
 
 // Fonction pour filtrer les recettes en fonction des tags sélectionnés
@@ -89,7 +97,7 @@ function filterRecipes(searchText) {
     generateUstensilDropdown(filteredRecipes);
 }
 
-function displayRecipesNumber (length) {
+function displayRecipesNumber(length) {
     // Sélectionner l'élément où afficher le nombre total de recettes
     const totalRecipesElement = document.getElementById('totalRecipesCount');
 
@@ -97,7 +105,7 @@ function displayRecipesNumber (length) {
     totalRecipesElement.textContent = `${length} recette(s)`;
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         // Charger les recettes et afficher initialement
         const recipes = await RecipeFactory.loadRecipes();
