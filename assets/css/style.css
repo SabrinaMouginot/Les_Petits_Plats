@@ -102,12 +102,17 @@ header input {
 }
 
 .dropdown-menu button:hover {
-    background-color: rgb(255, 209, 91); /* Couleur de fond jaune au survol */
+    background-color: rgb(255, 209, 91); 
 }
 
 .dropdown-menu button:focus,
 .dropdown-menu button:active {
     background-color: rgb(255, 209, 91);
+}
+
+.dropdown-menu-selected {
+    background-color: rgb(255, 209, 91);
+    font-weight: bold;
 }
 
 .selected-ingredient,
@@ -142,3 +147,39 @@ header input {
     transform: rotateX(180deg);
 }
 
+
+
+
+
+
+
+/* Styles pour les boutons de tag */
+/* .btn-tag {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #FFD15B;
+    color: #333;
+} */
+
+/* Styles pour la croix de fermeture */
+.close-btn {
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+
+.selected-ingredient, .selected-appliance, .selected-ustensil {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Espace entre les tags */
+}
+
+.btn-tag {
+    display: flex;
+    align-items: center;
+}

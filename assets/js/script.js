@@ -3,7 +3,6 @@ import { generateIngredientDropdown } from './filters/ingredientFilter.js';
 import { generateApplianceDropdown } from './filters/applianceFilter.js';
 import { generateUstensilDropdown } from './filters/ustensilFilter.js';
 
-
 const tags = [];
 let allRecipes; // Déclarer la variable globale allRecipes
 
@@ -33,6 +32,26 @@ export function displayTags() {
         } else if (tag.type === 'ustensil') {
             ustensilContainer.appendChild(tagButton);
         }
+
+        // Créer l'élément de la croix de fermeture
+        const closeButton = document.createElement('span');
+        closeButton.className = 'close-btn';
+        closeButton.innerHTML = '&times;'; // Code HTML pour le symbole "×"
+
+        // Ajouter la croix de fermeture au tag
+        tagButton.appendChild(closeButton);
+
+        // Ajouter un gestionnaire d'événements de clic à la croix de fermeture
+        closeButton.addEventListener('click', () => {
+            // Supprimer le tag de la liste des tags
+            const tagIndex = tags.findIndex(t => t.value === tag.value && t.type === tag.type);
+            if (tagIndex !== -1) {
+                tags.splice(tagIndex, 1);
+            }
+
+            // Rafraîchir l'affichage des tags et des recettes
+            displayTags();
+        });
     });
 
     // Filtrer et afficher les recettes à chaque changement de tag
@@ -92,8 +111,6 @@ function filterRecipes(searchText) {
         }
     }
 
-    // Afficher les recettes filtrées
-    RecipeFactory.renderRecipes(filteredRecipes);
     // Filtrer les recettes en fonction des tags sélectionnés
     filteredRecipes = filterRecipesByTags(filteredRecipes);
 
@@ -103,26 +120,27 @@ function filterRecipes(searchText) {
 
     // Afficher les recettes filtrées
     RecipeFactory.renderRecipes(filteredRecipes);
+    displayRecipesNumber(filteredRecipes.length);
+    generateIngredientDropdown(filteredRecipes);
+    generateApplianceDropdown(filteredRecipes);
+    generateUstensilDropdown(filteredRecipes);
+}
+
+function displayRecipesNumber(length) {
+    // Sélectionner l'élément où afficher le nombre total de recettes
+    const totalRecipesElement = document.getElementById('totalRecipesCount');
+
+    // Afficher le nombre total de recettes dans l'élément
+    totalRecipesElement.textContent = `${length} recette(s)`;
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
     try {
-        const response = await fetch('assets/json/recipes.json');
-        const recipesData = await response.json();
-
-        // Compter le nombre total de recettes
-        const totalRecipesCount = recipesData.length;
-
-        // Sélectionner l'élément où afficher le nombre total de recettes
-        const totalRecipesElement = document.getElementById('totalRecipesCount');
-
-        // Afficher le nombre total de recettes dans l'élément
-        totalRecipesElement.textContent = `${totalRecipesCount} recette(s)`;
-
         // Charger les recettes et afficher initialement
-        allRecipes = recipesData;
-        console.log(allRecipes); // Vérifiez le contenu des recettes chargées
+        const recipes = await RecipeFactory.loadRecipes();
+        allRecipes = recipes;
         RecipeFactory.renderRecipes(allRecipes);
+        displayRecipesNumber(allRecipes.length);
         generateIngredientDropdown(allRecipes);
         generateApplianceDropdown(allRecipes);
         generateUstensilDropdown(allRecipes);
@@ -130,40 +148,19 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.error('Erreur lors du chargement des recettes :', error);
     }
 
-
     const searchBar = document.querySelector('#searchBar');
-    const searchButton = document.querySelector('.loupe button'); // Sélectionnez le bouton de la loupe
+    const searchButton = document.querySelector('.loupe button');
 
-    let searchText = ''; // Variable pour stocker le texte de recherche
+    let searchText = '';
 
-    // Ajouter un écouteur d'événements pour le clic sur le bouton de la loupe
     searchButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Empêcher le comportement par défaut du formulaire
-
-        if (searchText !== '') { // Vérifiez si la barre de recherche n'est pas vide
-            filterRecipes(searchText); // Filtrez les recettes avec le texte de recherche
-        } else {
-            // Si la barre de recherche est vide, réinitialisez l'affichage
-            RecipeFactory.renderRecipes(allRecipes); // Affichez toutes les recettes
-        }
+        event.preventDefault();
+        filterRecipes(searchText);
     });
 
-    // Charger les recettes et affichez-les initialement
-    RecipeFactory.loadRecipes()
-        .then(recipes => {
-            allRecipes = recipes;
-            RecipeFactory.renderRecipes(recipes);
-            generateIngredientDropdown(recipes);
-            generateApplianceDropdown(recipes);
-            generateUstensilDropdown(recipes);
-        })
-        .catch(error => console.error('Erreur de chargement des données :', error));
-
-    // Ajoutez un écouteur d'événements pour le changement de texte dans la barre de recherche
     searchBar.addEventListener('input', function (event) {
-        searchText = event.target.value.trim(); // Mettez à jour le texte de recherche
-        console.log('Texte de recherche mis à jour:', searchText);
-        filterRecipes(searchText); // Filtrez les recettes avec le texte de recherche
+        searchText = event.target.value.trim();
+        filterRecipes(searchText);
     });
 });
 

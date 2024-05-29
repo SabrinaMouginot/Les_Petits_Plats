@@ -26,9 +26,13 @@ export function getUniqueItems(elements) {
 
 export function generateDropdown(uniqueItems, containerSelector, handleSelection, handleSearch) {
     const container = document.querySelector(containerSelector);
-
+    const oldDropdownMenu = document.getElementById(containerSelector)
+    if (oldDropdownMenu){
+        return
+    }
     // Créer la liste déroulante
     const dropdownMenu = document.createElement('div');
+    dropdownMenu.id = containerSelector;
     dropdownMenu.classList.add('dropdown-menu');
     dropdownMenu.style.display = 'none'; // Cacher la liste déroulante initialement
 
@@ -50,9 +54,14 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
         menuItem.classList.add('dropdown-item');
         menuItem.type = 'button';
         menuItem.textContent = item;
+
         menuItem.addEventListener('click', () => {
+            // menuItem.classList.add('dropdown-menu-selected');
+            // Ajouter ou supprimer la classe dropdown-menu-selected au clic
+            menuItem.classList.toggle('dropdown-menu-selected');
             handleSelection(item);
         });
+
         dropdownMenu.appendChild(menuItem);
     });
 
@@ -70,6 +79,8 @@ export function generateDropdown(uniqueItems, containerSelector, handleSelection
         }
     });
 }
+
+
 
 // Fonction appelée lors de la recherche dans la barre de recherche
 export function handleSearch(searchText, uniqueItems) {
